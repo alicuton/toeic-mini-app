@@ -399,10 +399,10 @@
         </div>
       </div>
 
-      <!-- Nút Chuyển Màn hình sang Làm Trắc Nghiệm -->
+      <!-- Nút Chuyển Màn hình sang Làm Trắc Nghiệm (Chỉ để: Làm bài Practice) -->
       <div class="pt-2">
         <button onclick="startQuizDirectly()" class="w-full min-h-[52px] bg-[#F5A623] hover:bg-[#D4891A] active:scale-[0.98] text-white rounded-2xl font-bold text-base shadow-sm flex items-center justify-center space-x-2 transition-all">
-          <span>🎯 Đã hiểu toàn bộ bài học ➔ Vào làm 20 câu trắc nghiệm</span>
+          <span>Làm bài Practice</span>
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </button>
       </div>
@@ -1793,214 +1793,246 @@ let fullLessonsData = [
 ];
 let fullMistakesData = [
   {
-    "lesson": 3,
-    "date": "2026-09-25",
-    "student": "Le Hang",
-    "question": 7,
-    "selected": "D",
-    "correct": "B",
-    "concept": "present_continuous_temporary_action",
-    "explanation": "Lỗi bẫy: present continuous temporary action"
-  },
-  {
-    "lesson": 3,
-    "date": "2026-09-25",
-    "student": "Le Hang",
-    "question": 12,
-    "selected": "A",
-    "correct": "B",
-    "concept": "noun_after_adjective_subject_position",
-    "explanation": "Lỗi bẫy: noun after adjective subject position"
-  },
-  {
-    "lesson": 3,
-    "date": "2026-09-25",
-    "student": "Le Hang",
-    "question": 14,
-    "selected": "A",
-    "correct": "B",
-    "concept": "compound_noun_expiration_date",
-    "explanation": "Lỗi bẫy: compound noun expiration date"
-  },
-  {
-    "lesson": 3,
-    "date": "2026-09-25",
-    "student": "Nguyen Dinh Toan",
-    "question": 7,
-    "selected": "C",
-    "correct": "B",
-    "concept": "present_continuous_temporary_action",
-    "explanation": "Lỗi bẫy: present continuous temporary action"
-  },
-  {
-    "lesson": 3,
-    "date": "2026-09-25",
-    "student": "Nguyen Dinh Toan",
-    "question": 12,
-    "selected": "C",
-    "correct": "B",
-    "concept": "noun_after_adjective_subject_position",
-    "explanation": "Lỗi bẫy: noun after adjective subject position"
-  },
-  {
-    "lesson": 4,
-    "date": "2026-09-26",
-    "student": "Nguyen Dinh Toan",
-    "question": 7,
-    "selected": "A",
-    "correct": "B",
-    "concept": "present_continuous_with_temporary_or_now",
-    "explanation": "Lỗi bẫy: present continuous with temporary or now"
-  },
-  {
-    "lesson": 4,
-    "date": "2026-09-26",
-    "student": "Nguyen Dinh Toan",
-    "question": 8,
-    "selected": "B",
-    "correct": "A",
-    "concept": "gerund_after_preposition_or_verb_pattern",
-    "explanation": "Lỗi bẫy: gerund after preposition or verb pattern"
-  },
-  {
-    "lesson": 4,
-    "date": "2026-09-26",
-    "student": "Nguyen Dinh Toan",
-    "question": 9,
-    "selected": "A",
-    "correct": "B",
-    "concept": "stative_verb_belong_no_continuous",
-    "explanation": "Lỗi bẫy: stative verb belong no continuous"
-  },
-  {
-    "lesson": 4,
-    "date": "2026-09-26",
-    "student": "Nguyen Dinh Toan",
-    "question": 11,
-    "selected": "A",
-    "correct": "B",
-    "concept": "word_form_characteristic_noun",
-    "explanation": "Lỗi bẫy: word form characteristic noun"
-  },
-  {
-    "lesson": 4,
-    "date": "2026-09-26",
-    "student": "Le Hang",
-    "question": 6,
-    "selected": "A",
-    "correct": "B",
-    "concept": "consider_in_continuous_meaning_weighing_options",
-    "explanation": "Lỗi bẫy: consider in continuous meaning weighing options"
-  },
-  {
-    "lesson": 4,
-    "date": "2026-09-26",
-    "student": "Le Hang",
-    "question": 14,
-    "selected": "C",
-    "correct": "B",
-    "concept": "present_continuous_temporary_this_month",
-    "explanation": "Lỗi bẫy: present continuous temporary this month"
-  },
-  {
-    "lesson": 6,
-    "date": "2026-09-28",
-    "student": "Le Hang",
-    "question": 13,
-    "selected": "B",
-    "correct": "C",
-    "concept": "past_continuous_with_while",
-    "explanation": "Lỗi bẫy: past continuous with while"
-  },
-  {
-    "lesson": 6,
-    "date": "2026-09-28",
-    "student": "Le Hang",
-    "question": 16,
-    "selected": "A",
-    "correct": "B",
-    "concept": "past_continuous_with_while",
-    "explanation": "Lỗi bẫy: past continuous with while"
-  },
-  {
-    "lesson": 6,
-    "date": "2026-09-28",
-    "student": "Nguyen Dinh Toan",
-    "question": 12,
-    "selected": "B",
-    "correct": "A",
-    "concept": "must_plus_base_verb",
-    "explanation": "Lỗi bẫy: must plus base verb"
-  },
-  {
-    "lesson": 6,
-    "date": "2026-09-28",
-    "student": "Nguyen Dinh Toan",
-    "question": 16,
-    "selected": "A",
-    "correct": "B",
-    "concept": "past_continuous_with_while",
-    "explanation": "Lỗi bẫy: past continuous with while"
-  },
-  {
-    "lesson": 7,
-    "date": "2026-09-29",
-    "student": "Nguyen Dinh Toan",
+    "lesson": 2,
     "question": 2,
-    "selected": "B",
-    "correct": "A",
-    "concept": "subject_verb_agreement_was_with_singular_office",
-    "explanation": "Lỗi bẫy: subject verb agreement was with singular office"
+    "student": "Nguyen Dinh Toan",
+    "category": "Grammar • Thì hiện tại tiếp diễn",
+    "title": "The firm _______ money this quarter due to supply chain disruption.",
+    "selected": "B. loses",
+    "correct": "C. is losing",
+    "expl": "Diễn tả biến động doanh thu tạm thời diễn ra trong quý này (this quarter) ➔ Bắt buộc chia thì Hiện tại tiếp diễn: is losing. Không dùng loses vì đây không phải quy luật vĩnh cửu.",
+    "trap": "⚠️ Bẫy thì hiện tại đơn vs. tiếp diễn: Dấu hiệu this quarter / this month chỉ tính tạm thời ➔ chọn tiếp diễn."
+  },
+  {
+    "lesson": 3,
+    "question": 7,
+    "student": "Nguyen Dinh Toan",
+    "category": "Grammar • Động từ xem xét",
+    "title": "Our department is currently _______ a new policy for remote work.",
+    "selected": "C. consider",
+    "correct": "B. considering",
+    "expl": "Đứng sau to-be (is currently) cần V-ing để tạo thành thì tiếp diễn ➔ is currently considering (đang cân nhắc/xem xét).",
+    "trap": "⚠️ Bẫy V-ing sau to-be: consider khi có nghĩa là suy tính, cân nhắc thì vẫn chia được tiếp diễn bình thường."
+  },
+  {
+    "lesson": 3,
+    "question": 12,
+    "student": "Nguyen Dinh Toan",
+    "category": "Word Form • Vị trí danh từ",
+    "title": "Customer _______ is our highest priority throughout the fiscal year.",
+    "selected": "C. satisfy",
+    "correct": "B. satisfaction",
+    "expl": "Đứng sau danh từ Customer để tạo thành cụm danh từ ghép làm chủ ngữ ➔ Customer satisfaction (sự hài lòng của khách hàng).",
+    "trap": "⚠️ Bẫy từ loại: Vị trí chủ ngữ trước động từ to-be (is) cần danh từ (đuôi -tion), không dùng động từ satisfy."
+  },
+  {
+    "lesson": 4,
+    "question": 7,
+    "student": "Nguyen Dinh Toan",
+    "category": "Grammar • Hành động tuần này",
+    "title": "The marketing team is _______ the new packaging this week.",
+    "selected": "A. evaluate",
+    "correct": "B. evaluating",
+    "expl": "Có trợ động từ is và trạng từ this week (tuần này) chỉ quá trình đang tiến hành ➔ is evaluating.",
+    "trap": "⚠️ Bẫy V-ing sau is: Không chọn động từ nguyên mẫu evaluate sau is."
+  },
+  {
+    "lesson": 4,
+    "question": 8,
+    "student": "Nguyen Dinh Toan",
+    "category": "Grammar • V-ing sau giới từ",
+    "title": "The director thanked the staff for _______ extra hours to meet the deadline.",
+    "selected": "B. worked",
+    "correct": "A. working",
+    "expl": "Sau giới từ for, động từ theo sau BẮT BUỘC ở dạng danh động từ V-ing (thank someone for doing something) ➔ working.",
+    "trap": "⚠️ Bẫy giới từ: Sau for / of / in / with / about ➔ 100% chọn V-ing."
+  },
+  {
+    "lesson": 4,
+    "question": 9,
+    "student": "Nguyen Dinh Toan",
+    "category": "Grammar • Động từ trạng thái belong",
+    "title": "This trademark _______ to our subsidiary in Singapore.",
+    "selected": "A. is belonging",
+    "correct": "B. belongs",
+    "expl": "Động từ belong (thuộc về) là động từ chỉ sở hữu/trạng thái (Stative Verb), TUYỆT ĐỐI KHÔNG chia thì tiếp diễn dù hành động đang diễn ra.",
+    "trap": "⚠️ Bẫy Stative Verb: belong, know, understand, believe, own ➔ Không bao giờ chia tiếp diễn."
+  },
+  {
+    "lesson": 4,
+    "question": 11,
+    "student": "Nguyen Dinh Toan",
+    "category": "Word Form • Tính từ sở hữu + Danh từ",
+    "title": "Reliability is a key _______ of an effective cloud service provider.",
+    "selected": "A. character",
+    "correct": "B. characteristic",
+    "expl": "Cần danh từ mang nghĩa đặc tính, đặc trưng ➔ characteristic. Từ character mang nghĩa tính cách con người hoặc nhân vật.",
+    "trap": "⚠️ Bẫy nghĩa từ vựng: key characteristic = đặc tính then chốt."
+  },
+  {
+    "lesson": 6,
+    "question": 12,
+    "student": "Nguyen Dinh Toan",
+    "category": "Grammar • Modal Verb must",
+    "title": "All visitors must _______ their identification badges at the front reception desk.",
+    "selected": "B. to present",
+    "correct": "A. present",
+    "expl": "Sau động từ khiếm khuyết (must, can, should, will) bắt buộc dùng động từ nguyên mẫu KHÔNG to (Bare Infinitive) ➔ must present.",
+    "trap": "⚠️ Bẫy Bare Infinitive: Tuyệt đối không chọn to-verb hay V-ing sau must."
+  },
+  {
+    "lesson": 6,
+    "question": 16,
+    "student": "Nguyen Dinh Toan",
+    "category": "Grammar • Quá khứ tiếp diễn với While",
+    "title": "While the technicians _______ the server room, the fire alarm sounded.",
+    "selected": "A. inspected",
+    "correct": "B. were inspecting",
+    "expl": "Mệnh đề đi với While diễn tả hành động đang diễn ra liên tục trong quá khứ ➔ were inspecting (khi kỹ thuật viên đang kiểm tra thì chuông reo).",
+    "trap": "⚠️ Bẫy While vs When: Sau While thường là quá khứ tiếp diễn (were + V-ing) chỉ hành động đang xảy ra."
   },
   {
     "lesson": 7,
-    "date": "2026-09-29",
-    "student": "Le Hang",
-    "question": 4,
-    "selected": "D",
-    "correct": "B",
-    "concept": "present_simple_habitual_holds_vs_past_plural",
-    "explanation": "Lỗi bẫy: present simple habitual holds vs past plural"
+    "question": 2,
+    "student": "Nguyen Dinh Toan",
+    "category": "Grammar • Sự hòa hợp Chủ - Vị",
+    "title": "The regional branch office _______ closed yesterday due to severe weather.",
+    "selected": "B. were",
+    "correct": "A. was",
+    "expl": "Chủ ngữ chính là The regional branch office (danh từ số ít) ➔ Động từ to-be ở quá khứ bắt buộc là was, không dùng were.",
+    "trap": "⚠️ Bẫy danh từ số ít: Dù có nhiều tính từ bổ nghĩa phía trước, chỉ nhìn vào danh từ chính office."
   },
   {
     "lesson": 8,
-    "date": "2026-10-01",
-    "student": "Nguyen Dinh Toan",
     "question": 1,
-    "selected": "D",
-    "correct": "B",
-    "concept": "modal_verb_must_plus_bare_infinitive",
-    "explanation": "Lỗi bẫy: modal verb must plus bare infinitive"
+    "student": "Nguyen Dinh Toan",
+    "category": "Grammar • Modal Verb must wear",
+    "title": "All warehouse personnel must _______ protective helmets in designated areas.",
+    "selected": "D. wearing",
+    "correct": "B. wear",
+    "expl": "Sau modal verb must là động từ nguyên mẫu không to ➔ must wear.",
+    "trap": "⚠️ Bẫy must: Bắt buộc chọn động từ nguyên mẫu wear."
   },
   {
     "lesson": 8,
-    "date": "2026-10-01",
-    "student": "Nguyen Dinh Toan",
     "question": 4,
-    "selected": "A",
-    "correct": "B",
-    "concept": "present_simple_habitual_holds_vs_continuous",
-    "explanation": "Lỗi bẫy: present simple habitual holds vs continuous"
+    "student": "Nguyen Dinh Toan",
+    "category": "Grammar • Hiện tại đơn chỉ công suất",
+    "title": "Each standard shipping container _______ up to twenty metric tons.",
+    "selected": "A. is holding",
+    "correct": "B. holds",
+    "expl": "Diễn tả thông số kỹ thuật, khả năng chứa đựng hiển nhiên ➔ Chia thì Hiện tại đơn ngôi thứ 3 số ít: holds.",
+    "trap": "⚠️ Bẫy sự thật hiển nhiên: Thông số kỹ thuật của thiết bị không dùng tiếp diễn."
   },
   {
     "lesson": 8,
-    "date": "2026-10-01",
-    "student": "Nguyen Dinh Toan",
     "question": 8,
-    "selected": "B",
-    "correct": "C",
-    "concept": "office_equipment_vocab_capacity_or_durable",
-    "explanation": "Lỗi bẫy: office equipment vocab capacity or durable"
+    "student": "Nguyen Dinh Toan",
+    "category": "Grammar • in charge of + V-ing",
+    "title": "Ms. Davis has been in charge of _______ office inventory since Mr. Clark was transferred.",
+    "selected": "B. managed",
+    "correct": "C. managing",
+    "expl": "Cụm in charge of (chịu trách nhiệm về việc gì): of là giới từ nên động từ đi sau bắt buộc ở dạng V-ing ➔ managing.",
+    "trap": "⚠️ Bẫy in charge of: Sau of luôn luôn là V-ing, không chia V-ed."
+  },
+  {
+    "lesson": 3,
+    "question": 7,
+    "student": "Le Hang",
+    "category": "Grammar • Hành động tạm thời",
+    "title": "The management committee is currently _______ multiple proposals.",
+    "selected": "D. considered",
+    "correct": "B. considering",
+    "expl": "Sau is currently là hành động đang diễn ra ➔ is currently considering.",
+    "trap": "⚠️ Bẫy thì tiếp diễn: is + V-ing."
+  },
+  {
+    "lesson": 3,
+    "question": 12,
+    "student": "Le Hang",
+    "category": "Word Form • Vị trí danh từ",
+    "title": "High customer _______ leads directly to repeat business and referrals.",
+    "selected": "A. satisfy",
+    "correct": "B. satisfaction",
+    "expl": "Sau tính từ High cần danh từ làm cụm chủ ngữ ➔ satisfaction.",
+    "trap": "⚠️ Bẫy từ loại: Đứng đầu câu làm chủ ngữ cần danh từ."
+  },
+  {
+    "lesson": 3,
+    "question": 14,
+    "student": "Le Hang",
+    "category": "Compound Noun • Danh từ ghép",
+    "title": "Please review the _______ date printed on the bottom of the package.",
+    "selected": "A. expire",
+    "correct": "B. expiration",
+    "expl": "Cụm danh từ ghép cố định: expiration date (ngày hết hạn sử dụng).",
+    "trap": "⚠️ Bẫy danh từ ghép: expiration date, không dùng động từ expire date."
+  },
+  {
+    "lesson": 4,
+    "question": 6,
+    "student": "Le Hang",
+    "category": "Grammar • consider chia tiếp diễn",
+    "title": "The CEO is _______ expanding our operations into Southeast Asia.",
+    "selected": "A. consider",
+    "correct": "B. considering",
+    "expl": "Đang cân nhắc phương án mở rộng ➔ is considering.",
+    "trap": "⚠️ Bẫy V-ing sau is."
+  },
+  {
+    "lesson": 4,
+    "question": 14,
+    "student": "Le Hang",
+    "category": "Grammar • Trạng từ this month",
+    "title": "The assembly plant is _______ thirty percent more vehicles this month.",
+    "selected": "C. produced",
+    "correct": "B. producing",
+    "expl": "Có cụm this month chỉ sự gia tăng tạm thời trong tháng này ➔ is producing.",
+    "trap": "⚠️ Bẫy biến động tạm thời: chọn tiếp diễn."
+  },
+  {
+    "lesson": 6,
+    "question": 13,
+    "student": "Le Hang",
+    "category": "Grammar • Quá khứ tiếp diễn với While",
+    "title": "While the director _______ the presentation, the projector shut down.",
+    "selected": "B. gave",
+    "correct": "C. was giving",
+    "expl": "Hành động đang diễn ra liên tục trong quá khứ đi sau While ➔ was giving.",
+    "trap": "⚠️ Bẫy While: sau While là quá khứ tiếp diễn."
+  },
+  {
+    "lesson": 6,
+    "question": 16,
+    "student": "Le Hang",
+    "category": "Grammar • Quá khứ tiếp diễn với While",
+    "title": "The fire alarm sounded while employees _______ in the cafeteria.",
+    "selected": "A. ate",
+    "correct": "B. were eating",
+    "expl": "Hành động ăn trưa đang diễn ra thì chuông reo ➔ were eating.",
+    "trap": "⚠️ Bẫy While: chọn were eating."
+  },
+  {
+    "lesson": 7,
+    "question": 4,
+    "student": "Le Hang",
+    "category": "Grammar • Hiện tại đơn ngôi thứ 3",
+    "title": "The main auditorium _______ up to five hundred guests comfortably.",
+    "selected": "D. is holding",
+    "correct": "B. holds",
+    "expl": "Sức chứa hiển nhiên của khán phòng chia hiện tại đơn ➔ holds.",
+    "trap": "⚠️ Bẫy sức chứa: dùng hiện tại đơn holds."
   },
   {
     "lesson": 9,
-    "date": "2026-10-02",
-    "student": "Nguyen Dinh Toan",
-    "question": 14,
-    "selected": "A",
-    "correct": "B",
-    "concept": "present_perfect_result_number_of_items_finished",
-    "explanation": "Lỗi bẫy: present perfect result number of items finished"
+    "question": 5,
+    "student": "Le Hang",
+    "category": "Collocation • take the initiative",
+    "title": "She was commended for taking the _______ in resolving the client complaint.",
+    "selected": "C. initiated",
+    "correct": "B. initiative",
+    "expl": "Cụm collocation cố định: take the initiative (chủ động làm gì).",
+    "trap": "⚠️ Bẫy take the initiative: sau take the là danh từ initiative."
   }
 ];
 
@@ -2053,19 +2085,22 @@ function renderFullMistakeBank() {
 
     card.innerHTML = `
       <div class="flex items-center justify-between text-xs font-bold">
-        <span class="text-[#D4891A] bg-[#FDF3E0] px-2.5 py-0.5 rounded-md">Lesson ${m.lesson} • Câu ${m.question}</span>
-        <span class="text-[11px] text-[#78716C]">Chạm để lật 🔄</span>
+        <span class="text-[#D4891A] bg-[#FDF3E0] px-3 py-1 rounded-lg border border-[#F5A623]/20">Lesson ${m.lesson < 10 ? '0' + m.lesson : m.lesson} • Câu ${m.question}</span>
+        <span class="text-xs text-[#78716C] font-semibold">Chạm để lật 🔄</span>
       </div>
-      <p class="text-sm font-bold text-[#1C1917] leading-snug">
-        Khái niệm bẫy thi: <span class="text-rose-600">${m.concept ? m.concept.replace(/_/g, ' ') : 'TOEIC Trap'}</span>
-      </p>
-      <div class="fc-back hidden pt-3 border-t border-[#E8E0D5] text-xs space-y-1.5 text-[#1C1917]">
-        <div class="flex space-x-3 text-[11px] font-mono pb-1">
+      <div class="space-y-1">
+        <span class="text-[11px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-md">${m.category || 'Lỗi Ngữ Pháp / Bẫy Đề'}</span>
+        <p class="text-sm font-bold text-[#1C1917] leading-snug pt-1">
+          ${m.title || (m.concept ? m.concept.replace(/_/g, ' ') : 'Câu hỏi ôn tập')}
+        </p>
+      </div>
+      <div class="fc-back hidden pt-3 border-t border-[#E8E0D5] text-xs space-y-2 text-[#1C1917]">
+        <div class="flex space-x-3 text-xs font-mono p-2.5 bg-[#FAF7F2] rounded-xl border border-[#E8E0D5]">
           <span>Bạn chọn: <b class="text-rose-600">${m.selected || '-'}</b></span>
           <span>Đáp án đúng: <b class="text-emerald-700">${m.correct || '-'}</b></span>
         </div>
-        <p><b class="text-emerald-700">Giải thích cốt lõi:</b> ${m.explanation}</p>
-        <p class="text-[#D4891A] font-medium italic">💡 Cần lưu ý khi gặp lại dạng câu này trong đề thi!</p>
+        <p class="text-xs text-[#1C1917] leading-relaxed"><b class="text-emerald-700">Giải thích chi tiết:</b> ${m.expl || m.explanation}</p>
+        ${m.trap ? `<p class="text-xs text-[#D4891A] bg-[#FDF3E0] p-2.5 rounded-xl border border-[#F5A623]/30 leading-relaxed font-medium">${m.trap}</p>` : ''}
       </div>
     `;
     container.appendChild(card);
@@ -2326,6 +2361,24 @@ function speakWord(word) {
   }
 }
 
+// Phát âm thanh câu hỏi bài thi Listening (Hỗ trợ phát trọn vẹn cả đoạn hội thoại trên iOS)
+function playListeningAudio(text) {
+  if (!text) return;
+  // Với câu dài Part 2/3, dùng Google Translate TTS Audio Cloud Stream trực tiếp
+  const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=en&q=${encodeURIComponent(text)}`;
+  const audio = new Audio(audioUrl);
+  audio.play().catch(err => {
+    console.warn('Google TTS play failed, trying Web Speech:', err);
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = 'en-US';
+      u.rate = 0.85;
+      window.speechSynthesis.speak(u);
+    }
+  });
+}
+
 // Quiz Flow Implementation
 function loadCurrentQuestion() {
   const q = quizQuestions[currentQuestionIndex];
@@ -2425,7 +2478,7 @@ function nextQuestion() {
 function toggleQuizAudio() {
   const q = quizQuestions[currentQuestionIndex];
   if (q && q.audioText) {
-    speakWord(q.audioText);
+    playListeningAudio(q.audioText);
   }
 }
 
