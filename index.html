@@ -108,13 +108,13 @@
             <p class="text-xs text-[#78716C] mt-1 leading-relaxed">Sẵn sàng bứt phá mục tiêu TOEIC 650+ hôm nay nhé.</p>
           </div>
           <!-- Progress Ring Căn chuẩn giữa tuyệt đối -->
-          <div class="relative w-16 h-16 flex items-center justify-center flex-shrink-0">
-            <svg class="w-16 h-16 transform -rotate-90">
-              <circle class="text-[#E8E0D5]" stroke-width="4.5" stroke="currentColor" fill="transparent" r="26" cx="32" cy="32"/>
-              <circle class="text-[#F5A623]" stroke-width="4.5" stroke-dasharray="163.36" stroke-dashoffset="0" stroke-linecap="round" stroke="currentColor" fill="transparent" r="26" cx="32" cy="32"/>
+          <div class="relative w-16 h-16 flex-shrink-0 flex items-center justify-center">
+            <svg class="w-full h-full -rotate-90 transform" viewBox="0 0 64 64">
+              <circle class="text-[#E8E0D5]" stroke-width="5" stroke="currentColor" fill="transparent" r="26" cx="32" cy="32"/>
+              <circle class="text-[#F5A623]" stroke-width="5" stroke-dasharray="163.36" stroke-dashoffset="40.84" stroke-linecap="round" stroke="currentColor" fill="transparent" r="26" cx="32" cy="32"/>
             </svg>
             <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <span class="text-xs font-black text-[#D4891A]">9/9</span>
+              <span class="text-xs font-black text-[#D4891A] leading-none m-0 p-0 text-center">75%</span>
             </div>
           </div>
         </div>
@@ -592,7 +592,7 @@
     </button>
   </nav>
 
-  <!-- External App JS -->
-  <script src="js/app.js"></script>
+  <!-- External App JS (Thêm query version để phá cache Telegram/iOS) -->
+  <script src="js/app.js?v=20261003_v4"></script>
 </body>
 </html>
