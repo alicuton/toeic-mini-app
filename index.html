@@ -105,7 +105,7 @@
               <span>🔥 Chuỗi 9 ngày học liên tục</span>
             </div>
             <h2 class="text-xl font-extrabold tracking-tight text-[#1C1917]" id="dashWelcome">Chào anh Toản!</h2>
-            <p class="text-xs text-[#78716C] mt-1 leading-relaxed">Sẵn sàng bứt phá mục tiêu TOEIC 650+ hôm nay nhé.</p>
+            <p class="text-xs text-[#78716C] mt-1 font-bold">Mục tiêu TOEIC 650+</p>
           </div>
           <!-- Progress Ring Căn chuẩn giữa tuyệt đối -->
           <div class="relative w-16 h-16 flex-shrink-0 flex items-center justify-center">
@@ -120,7 +120,7 @@
         </div>
         <div class="mt-4 pt-3 border-t border-[#E8E0D5]/60 flex items-center justify-between text-xs text-[#78716C] font-semibold">
           <span>Đã hoàn thành: <b class="text-[#1C1917]">9 bài học</b></span>
-          <span class="text-[#D4891A] font-extrabold">Lộ trình liên tục (Không giới hạn)</span>
+          <span class="text-[#D4891A] font-extrabold">Lesson 10</span>
         </div>
       </div>
 
@@ -172,21 +172,18 @@
             <span>📖 Bắt đầu học bài</span>
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
           </button>
-          <button onclick="startQuizDirectly()" class="w-full min-h-[46px] px-4 bg-[#FAF7F2] hover:bg-[#F0EBE1] text-[#78716C] rounded-2xl font-bold text-xs transition-all text-center">
-            Đã thuộc bài? ➔ Vào làm bài trắc nghiệm ngay
-          </button>
         </div>
       </div>
 
-      <!-- Quick Access: Lịch sử bài học cũ -->
+      <!-- Quick Access: Bài đã học -->
       <div class="bg-white rounded-3xl p-5 border border-[#E8E0D5] shadow-xs flex items-center justify-between cursor-pointer hover:border-[#F5A623] transition-all" onclick="showView('viewHistory')">
         <div class="flex items-center space-x-3.5">
           <div class="w-11 h-11 rounded-2xl bg-[#FAF7F2] border border-[#E8E0D5] flex items-center justify-center text-xl flex-shrink-0">
             📚
           </div>
           <div class="space-y-1">
-            <h4 class="text-base font-extrabold text-[#1C1917] leading-tight">Kho lưu trữ bài học cũ</h4>
-            <p class="text-xs text-[#78716C] font-medium leading-relaxed">Xem lại lý thuyết từ Lesson 01 đến 09</p>
+            <h4 class="text-base font-extrabold text-[#1C1917] leading-tight">Bài đã học</h4>
+            <p class="text-xs text-[#78716C] font-medium leading-relaxed">Xem lại lý thuyết & bài làm từ Lesson 01 đến 09</p>
           </div>
         </div>
         <div class="flex items-center space-x-1 pl-3 flex-shrink-0">
@@ -356,7 +353,7 @@
       <!-- Question Card (Font chữ to rõ ràng) -->
       <div class="bg-white p-5 rounded-3xl border border-[#E8E0D5] shadow-xs space-y-4">
         <p class="text-base font-bold text-[#1C1917] leading-relaxed" id="quizQuestionText">
-          The IT department is responsible for ------- all hardware and network issues within 24 hours.
+          The IT department is responsible for _______ all hardware and network issues within 24 hours.
         </p>
 
         <!-- Options Container (Nút to, dễ chạm ngón cái) -->
@@ -616,7 +613,7 @@ const quizQuestions = [
     id: 1,
     type: 'Review',
     section: '1. Review L09',
-    text: 'Over the last three quarters, our sales team ------- the annual revenue target.',
+    text: 'Over the last three quarters, our sales team _______ the annual revenue target.',
     options: {
       A: 'exceeds',
       B: 'has exceeded',
@@ -630,7 +627,7 @@ const quizQuestions = [
     id: 2,
     type: 'Review',
     section: '1. Review L09',
-    text: 'All employees are required to comply ------- the newly updated IT security guidelines.',
+    text: 'All employees are required to comply _______ the newly updated IT security guidelines.',
     options: {
       A: 'with',
       B: 'to',
@@ -644,7 +641,7 @@ const quizQuestions = [
     id: 3,
     type: 'Practice',
     section: '2. Practice Part 5',
-    text: 'The IT department is responsible for ------- all hardware and network issues within 24 hours.',
+    text: 'The IT department is responsible for _______ all hardware and network issues within 24 hours.',
     options: {
       A: 'troubleshoot',
       B: 'troubleshooting',
@@ -658,7 +655,7 @@ const quizQuestions = [
     id: 4,
     type: 'Practice',
     section: '2. Practice Part 5',
-    text: 'The conference room was unavailable because the projector was being ------- by technicians.',
+    text: 'The conference room was unavailable because the projector was being _______ by technicians.',
     options: {
       A: 'repairing',
       B: 'repair',
@@ -785,21 +782,21 @@ let fullLessonsData = [
     "questions": [
       {
         "id": 1,
-        "text": "The two parties were unable to reach an ------- on the terms of payment.",
+        "text": "The two parties were unable to reach an _______ on the terms of payment.",
         "chosen": "B",
         "correct": "B",
         "is_correct": true
       },
       {
         "id": 2,
-        "text": "All employees are required to abide ------- company safety rules.",
+        "text": "All employees are required to abide _______ company safety rules.",
         "chosen": "A",
         "correct": "A",
         "is_correct": true
       },
       {
         "id": 3,
-        "text": "The warranty provides ------- that defective equipment will be replaced.",
+        "text": "The warranty provides _______ that defective equipment will be replaced.",
         "chosen": "B",
         "correct": "B",
         "is_correct": true
@@ -879,14 +876,14 @@ let fullLessonsData = [
     "questions": [
       {
         "id": 1,
-        "text": "The company is currently ------- into new international markets.",
+        "text": "The company is currently _______ into new international markets.",
         "chosen": "C",
         "correct": "C",
         "is_correct": true
       },
       {
         "id": 2,
-        "text": "The firm ------- money this quarter due to supply chain disruption.",
+        "text": "The firm _______ money this quarter due to supply chain disruption.",
         "chosen": "B",
         "correct": "C",
         "is_correct": false,
@@ -967,7 +964,7 @@ let fullLessonsData = [
     "questions": [
       {
         "id": 7,
-        "text": "Our department is currently ------- a new policy for remote work.",
+        "text": "Our department is currently _______ a new policy for remote work.",
         "chosen": "C",
         "correct": "B",
         "is_correct": false,
@@ -975,7 +972,7 @@ let fullLessonsData = [
       },
       {
         "id": 14,
-        "text": "Please check the ------- date stamped on the package.",
+        "text": "Please check the _______ date stamped on the package.",
         "chosen": "A",
         "correct": "B",
         "is_correct": false,
@@ -1056,7 +1053,7 @@ let fullLessonsData = [
     "questions": [
       {
         "id": 7,
-        "text": "The marketing team is ------- the new packaging this week.",
+        "text": "The marketing team is _______ the new packaging this week.",
         "chosen": "A",
         "correct": "B",
         "is_correct": false,
@@ -1064,7 +1061,7 @@ let fullLessonsData = [
       },
       {
         "id": 9,
-        "text": "This trademark ------- to our subsidiary in Singapore.",
+        "text": "This trademark _______ to our subsidiary in Singapore.",
         "chosen": "A",
         "correct": "B",
         "is_correct": false,
@@ -1145,14 +1142,14 @@ let fullLessonsData = [
     "questions": [
       {
         "id": 1,
-        "text": "All department heads must ------- their annual budgets by Friday.",
+        "text": "All department heads must _______ their annual budgets by Friday.",
         "chosen": "A",
         "correct": "A",
         "is_correct": true
       },
       {
         "id": 2,
-        "text": "The firm will accommodate ------- requests whenever possible.",
+        "text": "The firm will accommodate _______ requests whenever possible.",
         "chosen": "B",
         "correct": "B",
         "is_correct": true
@@ -1232,7 +1229,7 @@ let fullLessonsData = [
     "questions": [
       {
         "id": 13,
-        "text": "While the director ------- the presentation, the power went out.",
+        "text": "While the director _______ the presentation, the power went out.",
         "chosen": "B",
         "correct": "C",
         "is_correct": false,
@@ -1240,7 +1237,7 @@ let fullLessonsData = [
       },
       {
         "id": 16,
-        "text": "When the auditor arrived, the team ------- the financial statements.",
+        "text": "When the auditor arrived, the team _______ the financial statements.",
         "chosen": "A",
         "correct": "B",
         "is_correct": false,
@@ -1321,7 +1318,7 @@ let fullLessonsData = [
     "questions": [
       {
         "id": 2,
-        "text": "The regional office ------- closed yesterday for renovations.",
+        "text": "The regional office _______ closed yesterday for renovations.",
         "chosen": "B",
         "correct": "A",
         "is_correct": false,
@@ -1402,7 +1399,7 @@ let fullLessonsData = [
     "questions": [
       {
         "id": 1,
-        "text": "All warehouse personnel ------- wear protective gear at all times.",
+        "text": "All warehouse personnel _______ wear protective gear at all times.",
         "chosen": "D",
         "correct": "B",
         "is_correct": false,
@@ -1410,7 +1407,7 @@ let fullLessonsData = [
       },
       {
         "id": 4,
-        "text": "Each standard shipping container ------- up to 20 metric tons.",
+        "text": "Each standard shipping container _______ up to 20 metric tons.",
         "chosen": "A",
         "correct": "B",
         "is_correct": false,
@@ -1491,7 +1488,7 @@ let fullLessonsData = [
     "questions": [
       {
         "id": 14,
-        "text": "So far this month, our technical team ------- over fifty support tickets.",
+        "text": "So far this month, our technical team _______ over fifty support tickets.",
         "chosen": "A",
         "correct": "B",
         "is_correct": false,
@@ -1957,6 +1954,14 @@ function showView(viewId) {
     viewHistory: 'navHistory',
     viewMistakeBank: 'navMistake'
   };
+
+  // Nếu chuyển sang tab Lịch sử hoặc Sổ lỗi sai, gọi render ngay
+  if (viewId === 'viewHistory') {
+    renderHistoryLessons();
+  }
+  if (viewId === 'viewMistakeBank') {
+    renderFullMistakeBank();
+  }
 
   Object.values(navMap).forEach(btnId => {
     const btn = document.getElementById(btnId);
