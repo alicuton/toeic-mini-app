@@ -2210,7 +2210,7 @@ function openHistoryDetail(lessonNum) {
   const practiceContainer = document.getElementById('histContentPractice');
   if (practiceContainer) {
     practiceContainer.innerHTML = '';
-    const questions = fullData ? fullData.questions : [];
+    const questions = lesson.questions || [];
     if (questions.length > 0) {
       const tableWrapper = document.createElement('div');
       tableWrapper.className = 'bg-white rounded-2xl border border-[#E8E0D5] overflow-hidden shadow-2xs text-xs';
