@@ -1,0 +1,441 @@
+{
+  "lesson": 10,
+  "date": "03/10/2026",
+  "title": "Personnel & Recruitment (Unit 10: Present Perfect Continuous vs Simple)",
+  "context": {
+    "summary": "Lesson 09: Toan 19/20 (95.0%), Hang 18/20 (90.0%). Đạt kết quả xuất sắc ở Listening Part 2. Cần đào sâu câu 14 phân biệt quá trình kéo dài (-ing) vs số lượng hoàn thành (Simple).",
+    "review_questions": [
+      {
+        "num": 1,
+        "text": "Ms. Sterling ________ three detailed contract drafts since this morning and submitted them to the director.",
+        "options": {
+          "A": "has been finalizing",
+          "B": "has finalized",
+          "C": "finalize",
+          "D": "was finalizing"
+        },
+        "correct": "B",
+        "expl": "Nhấn mạnh số lượng hoàn tất (three detailed contract drafts) ➔ Present Perfect Simple (has finalized)."
+      },
+      {
+        "num": 2,
+        "text": "The express ________ delivered the urgent financial report to the accounting department before noon.",
+        "options": {
+          "A": "courier",
+          "B": "couriers",
+          "C": "couriered",
+          "D": "couriering"
+        },
+        "correct": "A",
+        "expl": "Cần danh từ số ít làm chủ ngữ phù hợp ngữ cảnh người đưa thư ➔ courier."
+      },
+      {
+        "num": 3,
+        "text": "Before sending the proposal to clients, the editor carefully ________ all ten pages for grammatical errors.",
+        "options": {
+          "A": "proofreading",
+          "B": "proofread",
+          "C": "is proofread",
+          "D": "was proofreading"
+        },
+        "correct": "B",
+        "expl": "Hành động trong quá khứ trước khi gửi đề xuất ➔ proofread (quá khứ của proofread)."
+      },
+      {
+        "num": 4,
+        "text": "All new employees must ________ the safety guidelines before operating any machinery in the warehouse.",
+        "options": {
+          "A": "to review",
+          "B": "review",
+          "C": "reviewed",
+          "D": "reviewing"
+        },
+        "correct": "B",
+        "expl": "Sau modal verb must là bare infinitive ➔ review."
+      },
+      {
+        "num": 5,
+        "text": "Our human resources team decided to take the ________ in organizing professional development workshops.",
+        "options": {
+          "A": "initiate",
+          "B": "initiative",
+          "C": "initiated",
+          "D": "initiating"
+        },
+        "correct": "B",
+        "expl": "Cụm cố định: take the initiative = chủ động khởi xướng việc gì."
+      }
+    ]
+  },
+  "vocab": [
+    {
+      "word": "applicant",
+      "type": "n",
+      "meaning": "ứng viên, người nộp đơn xin việc",
+      "example": "Each applicant must submit a resume and two letters of recommendation."
+    },
+    {
+      "word": "background",
+      "type": "n",
+      "meaning": "lai lịch, kinh nghiệm làm việc",
+      "example": "His extensive background in marketing makes him an ideal candidate."
+    },
+    {
+      "word": "recruit",
+      "type": "v, n",
+      "meaning": "tuyển dụng (v); nhân viên mới (n)",
+      "example": "The corporation plans to recruit twenty new engineers."
+    },
+    {
+      "word": "candidate",
+      "type": "n",
+      "meaning": "ứng cử viên",
+      "example": "The hiring committee will interview the top three candidates."
+    },
+    {
+      "word": "hire",
+      "type": "v, n",
+      "meaning": "thuê, tuyển dụng (v); nhân viên mới (n)",
+      "example": "We decided to hire an experienced accountant to manage the audit."
+    },
+    {
+      "word": "conduct",
+      "type": "v",
+      "meaning": "tiến hành, thực hiện",
+      "example": "The HR manager will conduct job interviews in the main conference room."
+    },
+    {
+      "word": "personnel",
+      "type": "n",
+      "meaning": "nhân sự, cán bộ công nhân viên",
+      "example": "All inquiries regarding health insurance should be directed to personnel."
+    },
+    {
+      "word": "mentor",
+      "type": "n, v",
+      "meaning": "người hướng dẫn (n); kèm cặp (v)",
+      "example": "A senior analyst was assigned to mentor the newly hired staff."
+    },
+    {
+      "word": "qualification",
+      "type": "n",
+      "meaning": "năng lực chuyên môn, bằng cấp",
+      "example": "She possesses all the necessary qualifications for the director role."
+    },
+    {
+      "word": "reject",
+      "type": "v",
+      "meaning": "từ chối, bác bỏ",
+      "example": "The system will automatically reject any application missing required documents."
+    }
+  ],
+  "collocations": [
+    "recruit qualified employees: tuyển dụng nhân viên có chuyên môn",
+    "conduct an interview: tiến hành buổi phỏng vấn",
+    "screen job applicants: sàng lọc hồ sơ ứng viên",
+    "candidate qualifications: năng lực chuyên môn của ứng viên",
+    "relevant background experience: kinh nghiệm làm việc liên quan",
+    "personnel department: phòng ban nhân sự",
+    "new hire: nhân viên mới tuyển",
+    "assign a mentor: phân công người hướng dẫn/kèm cặp",
+    "reject an application: từ chối hồ sơ ứng tuyển",
+    "meet hiring requirements: đáp ứng yêu cầu tuyển dụng"
+  ],
+  "grammar": {
+    "concept": "Unit 10: Present Perfect Continuous vs. Present Perfect Simple",
+    "desc": "1. Present Perfect Continuous (have/has been + V-ing): Nhấn mạnh HÀNH ĐỘNG/QUÁ TRÌNH kéo dài liên tục (How long?).\\n2. Present Perfect Simple (have/has + V3/ed): Nhấn mạnh KẾT QUẢ / SỐ LƯỢNG cụ thể đã hoàn tất (How much? How many?).",
+    "pattern": "Quá trình: S + have/has been + V-ing + (for/since)\\nKết quả: S + have/has + V3/ed + [số lượng món / lần]",
+    "examples": [
+      "She has been interviewing applicants all morning. (Quá trình liên tục)",
+      "She has interviewed six applicants so far today. (Kết quả: 6 ứng viên)",
+      "The IT team has been upgrading the database for two days. (Đang nâng cấp)",
+      "The IT team has upgraded three company servers. (Đã nâng cấp xong 3 máy chủ)"
+    ],
+    "trap": "BẪY SỐ LƯỢNG: Khi câu có số lượng cụ thể (two reports, five candidates, three times...), TUYỆT ĐỐI KHÔNG chọn -ing mà PHẢI chọn Hiện tại hoàn thành đơn (have/has + V3/ed).\\nBẪY STATIVE VERBS: Động từ trạng thái (know, have, believe, belong...) KHÔNG chia thì hoàn thành tiếp diễn (vd: have known him for years, KHÔNG dùng have been knowing)."
+  },
+  "quiz_all": [
+    {
+      "id": 1,
+      "type": "Review",
+      "section": "1. Review L09",
+      "text": "Ms. Sterling ________ three detailed contract drafts since this morning and submitted them to the director.",
+      "options": {
+        "A": "has been finalizing",
+        "B": "has finalized",
+        "C": "finalize",
+        "D": "was finalizing"
+      },
+      "correctAnswer": "B",
+      "explanation": "Nhấn mạnh số lượng hoàn tất (three detailed contract drafts) ➔ Present Perfect Simple (has finalized)."
+    },
+    {
+      "id": 2,
+      "type": "Review",
+      "section": "1. Review L09",
+      "text": "The express ________ delivered the urgent financial report to the accounting department before noon.",
+      "options": {
+        "A": "courier",
+        "B": "couriers",
+        "C": "couriered",
+        "D": "couriering"
+      },
+      "correctAnswer": "A",
+      "explanation": "Cần danh từ số ít làm chủ ngữ phù hợp ngữ cảnh người đưa thư ➔ courier."
+    },
+    {
+      "id": 3,
+      "type": "Review",
+      "section": "1. Review L09",
+      "text": "Before sending the proposal to clients, the editor carefully ________ all ten pages for grammatical errors.",
+      "options": {
+        "A": "proofreading",
+        "B": "proofread",
+        "C": "is proofread",
+        "D": "was proofreading"
+      },
+      "correctAnswer": "B",
+      "explanation": "Hành động trong quá khứ trước khi gửi đề xuất ➔ proofread (quá khứ của proofread)."
+    },
+    {
+      "id": 4,
+      "type": "Review",
+      "section": "1. Review L09",
+      "text": "All new employees must ________ the safety guidelines before operating any machinery in the warehouse.",
+      "options": {
+        "A": "to review",
+        "B": "review",
+        "C": "reviewed",
+        "D": "reviewing"
+      },
+      "correctAnswer": "B",
+      "explanation": "Sau modal verb must là bare infinitive ➔ review."
+    },
+    {
+      "id": 5,
+      "type": "Review",
+      "section": "1. Review L09",
+      "text": "Our human resources team decided to take the ________ in organizing professional development workshops.",
+      "options": {
+        "A": "initiate",
+        "B": "initiative",
+        "C": "initiated",
+        "D": "initiating"
+      },
+      "correctAnswer": "B",
+      "explanation": "Cụm cố định: take the initiative = chủ động khởi xướng việc gì."
+    },
+    {
+      "id": 6,
+      "type": "Practice",
+      "section": "2. Practice Part 5",
+      "text": "Mr. Henderson ________ job applicants for the sales supervisor position since eight o'clock this morning.",
+      "options": {
+        "A": "interviews",
+        "B": "has been interviewing",
+        "C": "interviewed",
+        "D": "is interviewed"
+      },
+      "correctAnswer": "B",
+      "explanation": "Quá trình phỏng vấn liên tục từ sáng đến nay (since eight o'clock) ➔ has been interviewing."
+    },
+    {
+      "id": 7,
+      "type": "Practice",
+      "section": "2. Practice Part 5",
+      "text": "By two o'clock this afternoon, the recruitment panel ________ five promising candidates for the second round.",
+      "options": {
+        "A": "was selecting",
+        "B": "has selected",
+        "C": "has been selecting",
+        "D": "select"
+      },
+      "correctAnswer": "B",
+      "explanation": "Bẫy số lượng: five promising candidates (5 ứng viên) ➔ Phải dùng Hiện tại hoàn thành đơn: has selected."
+    },
+    {
+      "id": 8,
+      "type": "Practice",
+      "section": "2. Practice Part 5",
+      "text": "The personnel director ________ the job description on the company website to attract international talent.",
+      "options": {
+        "A": "posting",
+        "B": "has posted",
+        "C": "have posted",
+        "D": "was posted"
+      },
+      "correctAnswer": "B",
+      "explanation": "Chủ ngữ ngôi 3 số ít The personnel director ➔ has posted."
+    },
+    {
+      "id": 9,
+      "type": "Practice",
+      "section": "2. Practice Part 5",
+      "text": "Ms. Alvarez ________ a senior executive in our marketing division for more than five years.",
+      "options": {
+        "A": "has been",
+        "B": "is being",
+        "C": "has been being",
+        "D": "was being"
+      },
+      "correctAnswer": "A",
+      "explanation": "Động từ to-be là động từ trạng thái, không chia hoàn thành tiếp diễn ➔ has been."
+    },
+    {
+      "id": 10,
+      "type": "Practice",
+      "section": "2. Practice Part 5",
+      "text": "How many employment verification letters ________ the human resources assistant prepared today?",
+      "options": {
+        "A": "has",
+        "B": "have",
+        "C": "did",
+        "D": "was"
+      },
+      "correctAnswer": "A",
+      "explanation": "Chủ ngữ the human resources assistant là số ít ➔ trợ động từ has."
+    },
+    {
+      "id": 11,
+      "type": "Practice",
+      "section": "2. Practice Part 5",
+      "text": "All job ________ are required to submit their updated resumes prior to the Friday deadline.",
+      "options": {
+        "A": "applies",
+        "B": "applications",
+        "C": "applicants",
+        "D": "applicable"
+      },
+      "correctAnswer": "C",
+      "explanation": "Người nộp đơn ứng tuyển nộp sơ yếu lý lịch ➔ job applicants (danh từ chỉ người số nhiều)."
+    },
+    {
+      "id": 12,
+      "type": "Practice",
+      "section": "2. Practice Part 5",
+      "text": "The company will ________ thirty seasonal employees to prepare for the upcoming holiday rush.",
+      "options": {
+        "A": "recruit",
+        "B": "recruitment",
+        "C": "recruiting",
+        "D": "recruiter"
+      },
+      "correctAnswer": "A",
+      "explanation": "Sau will là động từ nguyên mẫu bare infinitive ➔ recruit."
+    },
+    {
+      "id": 13,
+      "type": "Practice",
+      "section": "2. Practice Part 5",
+      "text": "The hiring board decided to ________ the application because the candidate lacked the necessary qualifications.",
+      "options": {
+        "A": "reject",
+        "B": "rejectable",
+        "C": "rejection",
+        "D": "rejecting"
+      },
+      "correctAnswer": "A",
+      "explanation": "Cấu trúc decide to + V ➔ reject (từ chối hồ sơ)."
+    },
+    {
+      "id": 14,
+      "type": "Practice",
+      "section": "2. Practice Part 5",
+      "text": "An experienced branch manager was selected to ________ the newly recruited management trainees.",
+      "options": {
+        "A": "mentor",
+        "B": "mentorship",
+        "C": "mentored",
+        "D": "mentee"
+      },
+      "correctAnswer": "A",
+      "explanation": "Được chọn để hướng dẫn/kèm cặp ➔ to mentor."
+    },
+    {
+      "id": 15,
+      "type": "Practice",
+      "section": "2. Practice Part 5",
+      "text": "Mr. Davies has an impressive educational ________ in software engineering and cloud infrastructure.",
+      "options": {
+        "A": "background",
+        "B": "backgrounded",
+        "C": "backgrounding",
+        "D": "backgrounder"
+      },
+      "correctAnswer": "A",
+      "explanation": "Cụm danh từ: educational background (nền tảng học vấn)."
+    },
+    {
+      "id": 16,
+      "type": "Practice",
+      "section": "2. Practice Part 5",
+      "text": "The committee has been evaluating the finalists carefully, but they ________ a final decision yet.",
+      "options": {
+        "A": "have not been making",
+        "B": "have not made",
+        "C": "did not make",
+        "D": "are not making"
+      },
+      "correctAnswer": "B",
+      "explanation": "Có dấu hiệu yet và nhấn mạnh kết quả ra quyết định ➔ have not made."
+    },
+    {
+      "id": 17,
+      "type": "Practice",
+      "section": "2. Practice Part 5",
+      "text": "Over the past three weeks, our recruitment consultants ________ dozens of resumes from qualified specialists.",
+      "options": {
+        "A": "receive",
+        "B": "has been receiving",
+        "C": "have received",
+        "D": "were received"
+      },
+      "correctAnswer": "C",
+      "explanation": "Chủ ngữ số nhiều consultants và dấu hiệu Over the past three weeks ➔ have received."
+    },
+    {
+      "id": 18,
+      "type": "Listening",
+      "section": "3. Listening Part 2",
+      "hasAudio": true,
+      "audioText": "Have you finished reviewing the applicants resumes yet? A. Yes, I selected four candidates for interviews. B. In the personnel office on the fourth floor. C. No, the position was filled last month.",
+      "text": "🎧 [Part 2 — Câu 18] Have you finished reviewing the applicants' resumes yet?",
+      "options": {
+        "A": "Yes, I selected four candidates for interviews.",
+        "B": "In the personnel office on the fourth floor.",
+        "C": "No, the position was filled last month."
+      },
+      "correctAnswer": "A",
+      "explanation": "Hỏi đã rà soát hồ sơ xong chưa? ➔ Trả lời: Rồi, tôi đã chọn được 4 ứng viên để phỏng vấn."
+    },
+    {
+      "id": 19,
+      "type": "Listening",
+      "section": "3. Listening Part 2",
+      "hasAudio": true,
+      "audioText": "How long have you been conducting interviews for the sales manager position? A. Since nine oclock this morning. B. Next Tuesday in the main conference room. C. Yes, he has excellent qualifications.",
+      "text": "🎧 [Part 2 — Câu 19] How long have you been conducting interviews for the sales manager position?",
+      "options": {
+        "A": "Since nine o'clock this morning.",
+        "B": "Next Tuesday in the main conference room.",
+        "C": "Yes, he has excellent qualifications."
+      },
+      "correctAnswer": "A",
+      "explanation": "Hỏi khoảng thời gian bao lâu (How long) ➔ Trả lời: Kể từ 9 giờ sáng nay (Since nine o'clock)."
+    },
+    {
+      "id": 20,
+      "type": "Listening",
+      "section": "3. Listening Part 2",
+      "hasAudio": true,
+      "audioText": "Who has been mentoring the new engineering recruits? A. Because the training program was revised. B. Mr. Tanaka has been guiding them all week. C. At the downtown corporate headquarters.",
+      "text": "🎧 [Part 2 — Câu 20] Who has been mentoring the new engineering recruits?",
+      "options": {
+        "A": "Because the training program was revised.",
+        "B": "Mr. Tanaka has been guiding them all week.",
+        "C": "At the downtown corporate headquarters."
+      },
+      "correctAnswer": "B",
+      "explanation": "Hỏi ai đang kèm cặp (Who) ➔ Trả lời: Ông Tanaka đã hướng dẫn họ suốt tuần qua."
+    }
+  ]
+}

@@ -192,135 +192,217 @@
       </div>
     </section>
 
-    <!-- ==================== VIEW 2: STUDY SCREEN (BÀI HỌC) ==================== -->
-    <section id="viewStudy" class="space-y-4 hidden view-transition">
+    <!-- ==================== VIEW 2: STUDY SCREEN (BÀI HỌC CUỘN DỌC TỪ TRÊN XUỐNG) ==================== -->
+    <section id="viewStudy" class="space-y-5 hidden view-transition pb-6">
       <!-- Navigation Header -->
-      <div class="flex items-center justify-between">
-        <button onclick="showView('viewDashboard')" class="inline-flex items-center space-x-1 text-sm font-bold text-[#78716C] hover:text-[#1C1917]">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+      <div class="flex items-center justify-between px-1">
+        <button onclick="showView('viewDashboard')" class="inline-flex items-center space-x-1.5 text-sm font-bold text-[#78716C] hover:text-[#1C1917]">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
           <span>Tổng quan</span>
         </button>
-        <span class="text-xs font-extrabold text-[#D4891A] bg-[#FDF3E0] px-3.5 py-1 rounded-full">Chặng 1: Nạp Kiến Thức</span>
+        <span class="text-xs font-extrabold text-[#D4891A] bg-[#FDF3E0] px-3.5 py-1.5 rounded-full border border-[#F5A623]/30">Toàn Bộ Bài Học Lesson 10</span>
       </div>
 
-      <!-- Tab Buttons for Study -->
-      <div class="flex border-b border-[#E8E0D5] text-sm font-extrabold">
-        <button id="tabStudyReview" onclick="switchStudyTab('review')" class="flex-1 py-3 text-center border-b-2 border-[#F5A623] text-[#D4891A]">1. Review</button>
-        <button id="tabStudyVocab" onclick="switchStudyTab('vocab')" class="flex-1 py-3 text-center text-[#78716C] hover:text-[#1C1917] border-b-2 border-transparent">2. Từ Vựng (10)</button>
-        <button id="tabStudyGrammar" onclick="switchStudyTab('grammar')" class="flex-1 py-3 text-center text-[#78716C] hover:text-[#1C1917] border-b-2 border-transparent">3. Ngữ Pháp & Bẫy</button>
-      </div>
-
-      <!-- Study Sub-tab 1: Review -->
-      <div id="studyContentReview" class="space-y-3.5">
-        <div class="bg-white p-5 rounded-3xl border border-[#E8E0D5] shadow-xs space-y-3">
-          <h4 class="text-xs font-extrabold text-[#D4891A] uppercase tracking-wider">Ôn tập Mistake Bank hôm trước</h4>
-          <p class="text-sm text-[#1C1917] leading-relaxed">
-            Hôm trước mình đã gặp bẫy thể Bị động của thì Quá khứ tiếp diễn. Nhắc lại để không lặp lại lỗi này nhé:
+      <!-- PHẦN 1: BỐI CẢNH & REVIEW BÀI CŨ -->
+      <div class="bg-white p-5 rounded-3xl border border-[#E8E0D5] shadow-xs space-y-3">
+        <div class="flex items-center space-x-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#F5A623]"></span>
+          <h3 class="text-sm font-extrabold text-[#D4891A] uppercase tracking-wider">1. Review & Điểm Số Lesson 09</h3>
+        </div>
+        <div class="p-3.5 bg-[#FAF7F2] rounded-2xl border border-[#E8E0D5] text-xs space-y-1.5 text-[#1C1917]">
+          <p>• <b>Nguyễn Đình Toản:</b> 19/20 (95.0%) — Review 5/5, Practice 11/12, Listening 3/3.</p>
+          <p>• <b>Lê Hằng:</b> 18/20 (90.0%) — Review 4/5, Practice 11/12, Listening 3/3.</p>
+          <p class="text-[#78716C] pt-1 leading-relaxed">
+            <b>Nhận xét:</b> Cả hai đều xuất sắc ở Listening Part 2. Tuy nhiên cả hai bạn đều vướng câu 14 phân biệt giữa quá trình kéo dài (-ing) và số lượng cụ thể đã hoàn thành (Simple: <i>"has proofread four reports"</i> thay vì <i>"has been proofreading"</i>). Hôm nay ta sẽ dứt điểm Unit 10 này!
           </p>
-          <div class="p-4 bg-[#FDF3E0] rounded-2xl border border-[#F5A623]/40 text-sm text-[#1C1917] space-y-1.5">
-            <p class="font-extrabold text-[#D4891A]">⚠️ Công thức bị động tiếp diễn:</p>
-            <p class="text-xs bg-white px-3 py-1.5 rounded-lg border border-[#E8E0D5] font-bold">S + was/were + being + V3/ed</p>
-            <p class="text-xs text-[#78716C] pt-1">Ví dụ: The room was being <b>maintained</b> (TUYỆT ĐỐI không dùng maintaining).</p>
-          </div>
         </div>
       </div>
 
-      <!-- Study Sub-tab 2: 10 Vocabularies with Audio -->
-      <div id="studyContentVocab" class="space-y-3.5 hidden">
-        <p class="text-xs text-[#78716C] font-semibold px-1">Chạm vào nút 🔊 để nghe phát âm giọng bản xứ chuẩn:</p>
-        <div class="space-y-3" id="vocabListContainer">
-          <!-- Vocab Cards -->
+      <!-- PHẦN 2: 10 TỪ VỰNG CỐT LÕI (PERSONNEL & RECRUITMENT) -->
+      <div class="space-y-3">
+        <div class="flex items-center space-x-2 px-1">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#F5A623]"></span>
+          <h3 class="text-sm font-extrabold text-[#1C1917] uppercase tracking-wider">2. Từ Vựng Cốt Lõi (Personnel & Recruitment)</h3>
+        </div>
+        <div class="space-y-2.5" id="vocabListContainer">
+          <!-- 10 thẻ từ vựng thật của Lesson 10 -->
           <div class="bg-white p-4 rounded-2xl border border-[#E8E0D5] shadow-xs flex items-center justify-between">
             <div class="space-y-1 pr-3">
               <div class="flex items-center space-x-2">
-                <span class="text-base font-extrabold text-[#1C1917]">determine</span>
-                <span class="text-[11px] font-bold text-[#78716C] px-2 py-0.5 bg-[#FAF7F2] rounded-md">verb</span>
+                <span class="text-base font-extrabold text-[#1C1917]">applicant</span>
+                <span class="text-[11px] font-bold text-[#78716C] px-2 py-0.5 bg-[#FAF7F2] rounded-md border border-[#E8E0D5]">noun</span>
               </div>
-              <p class="text-sm text-[#D4891A] font-bold">xác định, quyết định</p>
-              <p class="text-xs text-[#78716C] italic leading-normal">"We need to determine the cause of the delay."</p>
+              <p class="text-sm text-[#D4891A] font-bold">ứng viên, người nộp đơn xin việc</p>
+              <p class="text-xs text-[#78716C] italic leading-normal">"Each applicant must submit a resume and two letters of recommendation."</p>
             </div>
-            <button onclick="speakWord('determine')" class="w-11 h-11 bg-[#FDF3E0] text-[#D4891A] hover:bg-[#F5A623] hover:text-white rounded-2xl transition-all flex items-center justify-center flex-shrink-0 text-lg shadow-xs">
-              🔊
-            </button>
+            <button onclick="speakWord('applicant')" class="w-11 h-11 bg-[#FDF3E0] text-[#D4891A] hover:bg-[#F5A623] hover:text-white rounded-2xl transition-all flex items-center justify-center flex-shrink-0 text-lg shadow-xs">🔊</button>
           </div>
 
           <div class="bg-white p-4 rounded-2xl border border-[#E8E0D5] shadow-xs flex items-center justify-between">
             <div class="space-y-1 pr-3">
               <div class="flex items-center space-x-2">
-                <span class="text-base font-extrabold text-[#1C1917]">allocate</span>
-                <span class="text-[11px] font-bold text-[#78716C] px-2 py-0.5 bg-[#FAF7F2] rounded-md">verb</span>
+                <span class="text-base font-extrabold text-[#1C1917]">background</span>
+                <span class="text-[11px] font-bold text-[#78716C] px-2 py-0.5 bg-[#FAF7F2] rounded-md border border-[#E8E0D5]">noun</span>
               </div>
-              <p class="text-sm text-[#D4891A] font-bold">phân bổ, cấp phát ngân sách</p>
-              <p class="text-xs text-[#78716C] italic leading-normal">"The director allocated extra budget for software."</p>
+              <p class="text-sm text-[#D4891A] font-bold">lai lịch, quá trình học vấn và kinh nghiệm</p>
+              <p class="text-xs text-[#78716C] italic leading-normal">"His extensive background in marketing makes him an ideal candidate."</p>
             </div>
-            <button onclick="speakWord('allocate')" class="w-11 h-11 bg-[#FDF3E0] text-[#D4891A] hover:bg-[#F5A623] hover:text-white rounded-2xl transition-all flex items-center justify-center flex-shrink-0 text-lg shadow-xs">
-              🔊
-            </button>
+            <button onclick="speakWord('background')" class="w-11 h-11 bg-[#FDF3E0] text-[#D4891A] hover:bg-[#F5A623] hover:text-white rounded-2xl transition-all flex items-center justify-center flex-shrink-0 text-lg shadow-xs">🔊</button>
           </div>
 
           <div class="bg-white p-4 rounded-2xl border border-[#E8E0D5] shadow-xs flex items-center justify-between">
             <div class="space-y-1 pr-3">
               <div class="flex items-center space-x-2">
-                <span class="text-base font-extrabold text-[#1C1917]">troubleshoot</span>
-                <span class="text-[11px] font-bold text-[#78716C] px-2 py-0.5 bg-[#FAF7F2] rounded-md">verb</span>
+                <span class="text-base font-extrabold text-[#1C1917]">recruit</span>
+                <span class="text-[11px] font-bold text-[#78716C] px-2 py-0.5 bg-[#FAF7F2] rounded-md border border-[#E8E0D5]">verb, noun</span>
               </div>
-              <p class="text-sm text-[#D4891A] font-bold">khắc phục sự cố, xử lý lỗi</p>
-              <p class="text-xs text-[#78716C] italic leading-normal">"He is trained to troubleshoot network issues."</p>
+              <p class="text-sm text-[#D4891A] font-bold">tuyển dụng (v); nhân viên mới (n)</p>
+              <p class="text-xs text-[#78716C] italic leading-normal">"The corporation plans to recruit twenty new engineers."</p>
             </div>
-            <button onclick="speakWord('troubleshoot')" class="w-11 h-11 bg-[#FDF3E0] text-[#D4891A] hover:bg-[#F5A623] hover:text-white rounded-2xl transition-all flex items-center justify-center flex-shrink-0 text-lg shadow-xs">
-              🔊
-            </button>
+            <button onclick="speakWord('recruit')" class="w-11 h-11 bg-[#FDF3E0] text-[#D4891A] hover:bg-[#F5A623] hover:text-white rounded-2xl transition-all flex items-center justify-center flex-shrink-0 text-lg shadow-xs">🔊</button>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl border border-[#E8E0D5] shadow-xs flex items-center justify-between">
+            <div class="space-y-1 pr-3">
+              <div class="flex items-center space-x-2">
+                <span class="text-base font-extrabold text-[#1C1917]">candidate</span>
+                <span class="text-[11px] font-bold text-[#78716C] px-2 py-0.5 bg-[#FAF7F2] rounded-md border border-[#E8E0D5]">noun</span>
+              </div>
+              <p class="text-sm text-[#D4891A] font-bold">ứng cử viên sáng giá</p>
+              <p class="text-xs text-[#78716C] italic leading-normal">"The hiring committee will interview the top three candidates tomorrow."</p>
+            </div>
+            <button onclick="speakWord('candidate')" class="w-11 h-11 bg-[#FDF3E0] text-[#D4891A] hover:bg-[#F5A623] hover:text-white rounded-2xl transition-all flex items-center justify-center flex-shrink-0 text-lg shadow-xs">🔊</button>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl border border-[#E8E0D5] shadow-xs flex items-center justify-between">
+            <div class="space-y-1 pr-3">
+              <div class="flex items-center space-x-2">
+                <span class="text-base font-extrabold text-[#1C1917]">hire</span>
+                <span class="text-[11px] font-bold text-[#78716C] px-2 py-0.5 bg-[#FAF7F2] rounded-md border border-[#E8E0D5]">verb, noun</span>
+              </div>
+              <p class="text-sm text-[#D4891A] font-bold">thuê, tuyển dụng (v); nhân sự mới (n)</p>
+              <p class="text-xs text-[#78716C] italic leading-normal">"We decided to hire an experienced accountant to manage the audit."</p>
+            </div>
+            <button onclick="speakWord('hire')" class="w-11 h-11 bg-[#FDF3E0] text-[#D4891A] hover:bg-[#F5A623] hover:text-white rounded-2xl transition-all flex items-center justify-center flex-shrink-0 text-lg shadow-xs">🔊</button>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl border border-[#E8E0D5] shadow-xs flex items-center justify-between">
+            <div class="space-y-1 pr-3">
+              <div class="flex items-center space-x-2">
+                <span class="text-base font-extrabold text-[#1C1917]">conduct</span>
+                <span class="text-[11px] font-bold text-[#78716C] px-2 py-0.5 bg-[#FAF7F2] rounded-md border border-[#E8E0D5]">verb</span>
+              </div>
+              <p class="text-sm text-[#D4891A] font-bold">tiến hành, thực hiện (phỏng vấn, khảo sát)</p>
+              <p class="text-xs text-[#78716C] italic leading-normal">"The HR manager will conduct job interviews in the main room."</p>
+            </div>
+            <button onclick="speakWord('conduct')" class="w-11 h-11 bg-[#FDF3E0] text-[#D4891A] hover:bg-[#F5A623] hover:text-white rounded-2xl transition-all flex items-center justify-center flex-shrink-0 text-lg shadow-xs">🔊</button>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl border border-[#E8E0D5] shadow-xs flex items-center justify-between">
+            <div class="space-y-1 pr-3">
+              <div class="flex items-center space-x-2">
+                <span class="text-base font-extrabold text-[#1C1917]">personnel</span>
+                <span class="text-[11px] font-bold text-[#78716C] px-2 py-0.5 bg-[#FAF7F2] rounded-md border border-[#E8E0D5]">noun</span>
+              </div>
+              <p class="text-sm text-[#D4891A] font-bold">nhân sự, cán bộ công nhân viên</p>
+              <p class="text-xs text-[#78716C] italic leading-normal">"All inquiries regarding health insurance should be directed to personnel."</p>
+            </div>
+            <button onclick="speakWord('personnel')" class="w-11 h-11 bg-[#FDF3E0] text-[#D4891A] hover:bg-[#F5A623] hover:text-white rounded-2xl transition-all flex items-center justify-center flex-shrink-0 text-lg shadow-xs">🔊</button>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl border border-[#E8E0D5] shadow-xs flex items-center justify-between">
+            <div class="space-y-1 pr-3">
+              <div class="flex items-center space-x-2">
+                <span class="text-base font-extrabold text-[#1C1917]">mentor</span>
+                <span class="text-[11px] font-bold text-[#78716C] px-2 py-0.5 bg-[#FAF7F2] rounded-md border border-[#E8E0D5]">noun, verb</span>
+              </div>
+              <p class="text-sm text-[#D4891A] font-bold">người hướng dẫn (n); kèm cặp (v)</p>
+              <p class="text-xs text-[#78716C] italic leading-normal">"A senior analyst was assigned to mentor newly hired staff."</p>
+            </div>
+            <button onclick="speakWord('mentor')" class="w-11 h-11 bg-[#FDF3E0] text-[#D4891A] hover:bg-[#F5A623] hover:text-white rounded-2xl transition-all flex items-center justify-center flex-shrink-0 text-lg shadow-xs">🔊</button>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl border border-[#E8E0D5] shadow-xs flex items-center justify-between">
+            <div class="space-y-1 pr-3">
+              <div class="flex items-center space-x-2">
+                <span class="text-base font-extrabold text-[#1C1917]">qualification</span>
+                <span class="text-[11px] font-bold text-[#78716C] px-2 py-0.5 bg-[#FAF7F2] rounded-md border border-[#E8E0D5]">noun</span>
+              </div>
+              <p class="text-sm text-[#D4891A] font-bold">năng lực chuyên môn, bằng cấp</p>
+              <p class="text-xs text-[#78716C] italic leading-normal">"She possesses all the necessary qualifications for the director role."</p>
+            </div>
+            <button onclick="speakWord('qualification')" class="w-11 h-11 bg-[#FDF3E0] text-[#D4891A] hover:bg-[#F5A623] hover:text-white rounded-2xl transition-all flex items-center justify-center flex-shrink-0 text-lg shadow-xs">🔊</button>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl border border-[#E8E0D5] shadow-xs flex items-center justify-between">
+            <div class="space-y-1 pr-3">
+              <div class="flex items-center space-x-2">
+                <span class="text-base font-extrabold text-[#1C1917]">reject</span>
+                <span class="text-[11px] font-bold text-[#78716C] px-2 py-0.5 bg-[#FAF7F2] rounded-md border border-[#E8E0D5]">verb</span>
+              </div>
+              <p class="text-sm text-[#D4891A] font-bold">từ chối, bác bỏ đơn ứng tuyển</p>
+              <p class="text-xs text-[#78716C] italic leading-normal">"The system will automatically reject any application missing required documents."</p>
+            </div>
+            <button onclick="speakWord('reject')" class="w-11 h-11 bg-[#FDF3E0] text-[#D4891A] hover:bg-[#F5A623] hover:text-white rounded-2xl transition-all flex items-center justify-center flex-shrink-0 text-lg shadow-xs">🔊</button>
           </div>
         </div>
 
         <!-- Collocations Box -->
         <div class="bg-[#1C1917] text-white p-5 rounded-3xl space-y-2.5">
-          <p class="text-xs font-extrabold text-[#F5A623] uppercase tracking-wider">💡 Collocations Cần Nhớ Hôm Nay:</p>
+          <p class="text-xs font-extrabold text-[#F5A623] uppercase tracking-wider">💡 Các Collocations Cần Nhớ:</p>
           <ul class="space-y-2 text-stone-200 text-xs">
-            <li class="flex items-start space-x-2">
-              <span class="text-[#F5A623]">•</span>
-              <span><b class="text-white">sign an agreement</b>: ký kết thỏa thuận</span>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-[#F5A623]">•</span>
-              <span><b class="text-white">troubleshoot a problem</b>: xử lý sự cố kỹ thuật</span>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-[#F5A623]">•</span>
-              <span><b class="text-white">compatible with</b>: tương thích với hệ thống</span>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-[#F5A623]">•</span>
-              <span><b class="text-white">grant access</b>: cấp quyền truy cập tài liệu</span>
-            </li>
+            <li>• <b class="text-white">recruit qualified employees</b>: tuyển dụng nhân viên có chuyên môn</li>
+            <li>• <b class="text-white">conduct an interview</b>: tiến hành buổi phỏng vấn</li>
+            <li>• <b class="text-white">screen job applicants</b>: sàng lọc hồ sơ ứng viên</li>
+            <li>• <b class="text-white">candidate qualifications</b>: năng lực chuyên môn của ứng viên</li>
+            <li>• <b class="text-white">relevant background experience</b>: kinh nghiệm làm việc liên quan</li>
+            <li>• <b class="text-white">personnel department</b>: phòng ban nhân sự</li>
+            <li>• <b class="text-white">new hire</b>: nhân viên mới tuyển</li>
+            <li>• <b class="text-white">assign a mentor</b>: phân công người hướng dẫn/kèm cặp</li>
+            <li>• <b class="text-white">reject an application</b>: từ chối hồ sơ ứng tuyển</li>
+            <li>• <b class="text-white">meet hiring requirements</b>: đáp ứng yêu cầu tuyển dụng</li>
           </ul>
         </div>
       </div>
 
-      <!-- Study Sub-tab 3: Grammar & TOEIC Trap -->
-      <div id="studyContentGrammar" class="space-y-3.5 hidden">
-        <div class="bg-white p-5 rounded-3xl border border-[#E8E0D5] shadow-xs space-y-3 text-sm">
-          <h4 class="font-extrabold text-[#1C1917] text-base">Present Perfect vs. Past Simple</h4>
-          <p class="text-[#78716C] leading-relaxed text-xs">
-            • <b>Quá khứ đơn (Past Simple)</b>: Đã chấm dứt hoàn toàn tại thời điểm cụ thể trong quá khứ (yesterday, last week, ago).<br>
-            • <b>Hiện tại hoàn thành (Present Perfect)</b>: Kéo dài từ quá khứ đến hiện tại hoặc vừa mới xảy ra (since, for, recently).
-          </p>
+      <!-- PHẦN 3: NGỮ PHÁP TRỌNG TÂM & BẪY THI TOEIC TRAP -->
+      <div class="space-y-3">
+        <div class="flex items-center space-x-2 px-1">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#F5A623]"></span>
+          <h3 class="text-sm font-extrabold text-[#1C1917] uppercase tracking-wider">3. Ngữ Pháp & Bẫy Thường Gặp</h3>
+        </div>
 
+        <div class="bg-white p-5 rounded-3xl border border-[#E8E0D5] shadow-xs space-y-3 text-xs leading-relaxed">
+          <h4 class="font-extrabold text-[#1C1917] text-sm">Unit 10: Present Perfect Continuous vs. Present Perfect Simple</h4>
+          
+          <div class="space-y-2 text-[#1C1917]">
+            <p>• <b>1. Present Perfect Continuous (have/has been + V-ing):</b> Tập trung vào HÀNH ĐỘNG/QUÁ TRÌNH kéo dài liên tục (How long? for..., since...). Nhấn mạnh tính liên tục của hành động.</p>
+            <p>• <b>2. Present Perfect Simple (have/has + V3/ed):</b> Tập trung vào KẾT QUẢ / SỐ LƯỢNG cụ thể đã hoàn tất (How much? How many? How many times?).</p>
+          </div>
+
+          <div class="p-3.5 bg-[#FAF7F2] rounded-2xl border border-[#E8E0D5] space-y-1 font-mono text-[11px]">
+            <p class="text-[#D4891A] font-bold">Pattern công thức:</p>
+            <p>Quá trình: S + have/has been + V-ing + (for / since...)</p>
+            <p>Số lượng: S + have/has + V3/ed + [số lượng món / lần]</p>
+          </div>
+
+          <!-- BẪY THI CỰC KỲ NỔI BẬT -->
           <div class="p-4 bg-rose-50 border border-rose-200 rounded-2xl space-y-2 text-rose-950">
             <p class="font-extrabold text-xs text-rose-700 flex items-center space-x-1">
-              <span>⚠️ TOEIC TRAP (BẪY THI PART 5)</span>
+              <span>⚠️ CÁC BẪY THƯỜNG GẶP (TOEIC TRAP)</span>
             </p>
-            <p class="text-xs text-rose-900 leading-relaxed">
-              Nếu trong câu xuất hiện cụm <b>"Over the last three months"</b> hoặc <b>"In recent years"</b> ➔ 99% chọn thì <b>Hiện tại hoàn thành (have/has + V3)</b>, TUYỆT ĐỐI không chọn Quá khứ đơn!
-            </p>
+            <ul class="space-y-1.5 text-xs text-rose-900 leading-relaxed">
+              <li>• <b>BẪY SỐ LƯỢNG (Quantity Trap):</b> Khi câu xuất hiện số lượng cụ thể (two reports, five candidates, three times...), TUYỆT ĐỐI KHÔNG chọn -ing mà PHẢI chọn Hiện tại hoàn thành đơn (have/has + V3/ed).</li>
+              <li>• <b>BẪY ĐỘNG TỪ TRẠNG THÁI (Stative Verbs):</b> Các động từ tri giác, sở hữu (know, have, believe, understand, belong...) KHÔNG chia thì hoàn thành tiếp diễn (vd: "have known him for years", KHÔNG dùng "have been knowing").</li>
+            </ul>
           </div>
         </div>
       </div>
 
-      <!-- Bottom Action -->
+      <!-- Nút Chuyển Màn hình sang Làm Trắc Nghiệm -->
       <div class="pt-2">
         <button onclick="startQuizDirectly()" class="w-full min-h-[52px] bg-[#F5A623] hover:bg-[#D4891A] active:scale-[0.98] text-white rounded-2xl font-bold text-base shadow-sm flex items-center justify-center space-x-2 transition-all">
-          <span>🎯 Đã hiểu bài ➔ Vào làm trắc nghiệm</span>
+          <span>🎯 Đã hiểu toàn bộ bài học ➔ Vào làm 20 câu trắc nghiệm</span>
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </button>
       </div>
@@ -610,75 +692,287 @@ let lastQuizResults = null; // Lưu lại kết quả bài vừa làm để mở
 // Sample Lesson 10 Questions Bank
 const quizQuestions = [
   {
-    id: 1,
-    type: 'Review',
-    section: '1. Review L09',
-    text: 'Over the last three quarters, our sales team _______ the annual revenue target.',
-    options: {
-      A: 'exceeds',
-      B: 'has exceeded',
-      C: 'exceeded',
-      D: 'was exceeding'
+    "id": 1,
+    "type": "Review",
+    "section": "1. Review L09",
+    "text": "Ms. Sterling ________ three detailed contract drafts since this morning and submitted them to the director.",
+    "options": {
+      "A": "has been finalizing",
+      "B": "has finalized",
+      "C": "finalize",
+      "D": "was finalizing"
     },
-    correctAnswer: 'B',
-    explanation: 'Cụm dấu hiệu "Over the last three quarters" chỉ khoảng thời gian kéo dài tới hiện tại ➔ Bắt buộc dùng thì Hiện tại hoàn thành (has exceeded).'
+    "correctAnswer": "B",
+    "explanation": "Nhấn mạnh số lượng hoàn tất (three detailed contract drafts) ➔ Present Perfect Simple (has finalized)."
   },
   {
-    id: 2,
-    type: 'Review',
-    section: '1. Review L09',
-    text: 'All employees are required to comply _______ the newly updated IT security guidelines.',
-    options: {
-      A: 'with',
-      B: 'to',
-      C: 'for',
-      D: 'in'
+    "id": 2,
+    "type": "Review",
+    "section": "1. Review L09",
+    "text": "The express ________ delivered the urgent financial report to the accounting department before noon.",
+    "options": {
+      "A": "courier",
+      "B": "couriers",
+      "C": "couriered",
+      "D": "couriering"
     },
-    correctAnswer: 'A',
-    explanation: 'Collocation cốt lõi: "comply with" = tuân thủ theo quy định (tương tự abide by).'
+    "correctAnswer": "A",
+    "explanation": "Cần danh từ số ít làm chủ ngữ phù hợp ngữ cảnh người đưa thư ➔ courier."
   },
   {
-    id: 3,
-    type: 'Practice',
-    section: '2. Practice Part 5',
-    text: 'The IT department is responsible for _______ all hardware and network issues within 24 hours.',
-    options: {
-      A: 'troubleshoot',
-      B: 'troubleshooting',
-      C: 'troubleshoots',
-      D: 'troubleshooter'
+    "id": 3,
+    "type": "Review",
+    "section": "1. Review L09",
+    "text": "Before sending the proposal to clients, the editor carefully ________ all ten pages for grammatical errors.",
+    "options": {
+      "A": "proofreading",
+      "B": "proofread",
+      "C": "is proofread",
+      "D": "was proofreading"
     },
-    correctAnswer: 'B',
-    explanation: 'Sau giới từ "for", động từ đi sau bắt buộc ở dạng V-ing (troubleshooting).'
+    "correctAnswer": "B",
+    "explanation": "Hành động trong quá khứ trước khi gửi đề xuất ➔ proofread (quá khứ của proofread)."
   },
   {
-    id: 4,
-    type: 'Practice',
-    section: '2. Practice Part 5',
-    text: 'The conference room was unavailable because the projector was being _______ by technicians.',
-    options: {
-      A: 'repairing',
-      B: 'repair',
-      C: 'repaired',
-      D: 'repairs'
+    "id": 4,
+    "type": "Review",
+    "section": "1. Review L09",
+    "text": "All new employees must ________ the safety guidelines before operating any machinery in the warehouse.",
+    "options": {
+      "A": "to review",
+      "B": "review",
+      "C": "reviewed",
+      "D": "reviewing"
     },
-    correctAnswer: 'C',
-    explanation: 'Cấu trúc Quá khứ tiếp diễn bị động: was being + V3/ed (was being repaired). Máy chiếu đang được sửa chữa.'
+    "correctAnswer": "B",
+    "explanation": "Sau modal verb must là bare infinitive ➔ review."
   },
   {
-    id: 5,
-    type: 'Listening',
-    section: '3. Listening Audio',
-    hasAudio: true,
-    audioText: 'Where can I find the user manual for the new printer?',
-    text: '🎧 [Audio Question] Nghe đoạn hội thoại và chọn phản hồi phù hợp nhất:',
-    options: {
-      A: 'Yes, it is very fast.',
-      B: 'It is on the top shelf next to the copier.',
-      C: 'Tomorrow afternoon at two.'
+    "id": 5,
+    "type": "Review",
+    "section": "1. Review L09",
+    "text": "Our human resources team decided to take the ________ in organizing professional development workshops.",
+    "options": {
+      "A": "initiate",
+      "B": "initiative",
+      "C": "initiated",
+      "D": "initiating"
     },
-    correctAnswer: 'B',
-    explanation: 'Câu hỏi hỏi về địa điểm "Where...", câu trả lời chỉ vị trí "On the top shelf" là phương án duy nhất logic.'
+    "correctAnswer": "B",
+    "explanation": "Cụm cố định: take the initiative = chủ động khởi xướng việc gì."
+  },
+  {
+    "id": 6,
+    "type": "Practice",
+    "section": "2. Practice Part 5",
+    "text": "Mr. Henderson ________ job applicants for the sales supervisor position since eight o'clock this morning.",
+    "options": {
+      "A": "interviews",
+      "B": "has been interviewing",
+      "C": "interviewed",
+      "D": "is interviewed"
+    },
+    "correctAnswer": "B",
+    "explanation": "Quá trình phỏng vấn liên tục từ sáng đến nay (since eight o'clock) ➔ has been interviewing."
+  },
+  {
+    "id": 7,
+    "type": "Practice",
+    "section": "2. Practice Part 5",
+    "text": "By two o'clock this afternoon, the recruitment panel ________ five promising candidates for the second round.",
+    "options": {
+      "A": "was selecting",
+      "B": "has selected",
+      "C": "has been selecting",
+      "D": "select"
+    },
+    "correctAnswer": "B",
+    "explanation": "Bẫy số lượng: five promising candidates (5 ứng viên) ➔ Phải dùng Hiện tại hoàn thành đơn: has selected."
+  },
+  {
+    "id": 8,
+    "type": "Practice",
+    "section": "2. Practice Part 5",
+    "text": "The personnel director ________ the job description on the company website to attract international talent.",
+    "options": {
+      "A": "posting",
+      "B": "has posted",
+      "C": "have posted",
+      "D": "was posted"
+    },
+    "correctAnswer": "B",
+    "explanation": "Chủ ngữ ngôi 3 số ít The personnel director ➔ has posted."
+  },
+  {
+    "id": 9,
+    "type": "Practice",
+    "section": "2. Practice Part 5",
+    "text": "Ms. Alvarez ________ a senior executive in our marketing division for more than five years.",
+    "options": {
+      "A": "has been",
+      "B": "is being",
+      "C": "has been being",
+      "D": "was being"
+    },
+    "correctAnswer": "A",
+    "explanation": "Động từ to-be là động từ trạng thái, không chia hoàn thành tiếp diễn ➔ has been."
+  },
+  {
+    "id": 10,
+    "type": "Practice",
+    "section": "2. Practice Part 5",
+    "text": "How many employment verification letters ________ the human resources assistant prepared today?",
+    "options": {
+      "A": "has",
+      "B": "have",
+      "C": "did",
+      "D": "was"
+    },
+    "correctAnswer": "A",
+    "explanation": "Chủ ngữ the human resources assistant là số ít ➔ trợ động từ has."
+  },
+  {
+    "id": 11,
+    "type": "Practice",
+    "section": "2. Practice Part 5",
+    "text": "All job ________ are required to submit their updated resumes prior to the Friday deadline.",
+    "options": {
+      "A": "applies",
+      "B": "applications",
+      "C": "applicants",
+      "D": "applicable"
+    },
+    "correctAnswer": "C",
+    "explanation": "Người nộp đơn ứng tuyển nộp sơ yếu lý lịch ➔ job applicants (danh từ chỉ người số nhiều)."
+  },
+  {
+    "id": 12,
+    "type": "Practice",
+    "section": "2. Practice Part 5",
+    "text": "The company will ________ thirty seasonal employees to prepare for the upcoming holiday rush.",
+    "options": {
+      "A": "recruit",
+      "B": "recruitment",
+      "C": "recruiting",
+      "D": "recruiter"
+    },
+    "correctAnswer": "A",
+    "explanation": "Sau will là động từ nguyên mẫu bare infinitive ➔ recruit."
+  },
+  {
+    "id": 13,
+    "type": "Practice",
+    "section": "2. Practice Part 5",
+    "text": "The hiring board decided to ________ the application because the candidate lacked the necessary qualifications.",
+    "options": {
+      "A": "reject",
+      "B": "rejectable",
+      "C": "rejection",
+      "D": "rejecting"
+    },
+    "correctAnswer": "A",
+    "explanation": "Cấu trúc decide to + V ➔ reject (từ chối hồ sơ)."
+  },
+  {
+    "id": 14,
+    "type": "Practice",
+    "section": "2. Practice Part 5",
+    "text": "An experienced branch manager was selected to ________ the newly recruited management trainees.",
+    "options": {
+      "A": "mentor",
+      "B": "mentorship",
+      "C": "mentored",
+      "D": "mentee"
+    },
+    "correctAnswer": "A",
+    "explanation": "Được chọn để hướng dẫn/kèm cặp ➔ to mentor."
+  },
+  {
+    "id": 15,
+    "type": "Practice",
+    "section": "2. Practice Part 5",
+    "text": "Mr. Davies has an impressive educational ________ in software engineering and cloud infrastructure.",
+    "options": {
+      "A": "background",
+      "B": "backgrounded",
+      "C": "backgrounding",
+      "D": "backgrounder"
+    },
+    "correctAnswer": "A",
+    "explanation": "Cụm danh từ: educational background (nền tảng học vấn)."
+  },
+  {
+    "id": 16,
+    "type": "Practice",
+    "section": "2. Practice Part 5",
+    "text": "The committee has been evaluating the finalists carefully, but they ________ a final decision yet.",
+    "options": {
+      "A": "have not been making",
+      "B": "have not made",
+      "C": "did not make",
+      "D": "are not making"
+    },
+    "correctAnswer": "B",
+    "explanation": "Có dấu hiệu yet và nhấn mạnh kết quả ra quyết định ➔ have not made."
+  },
+  {
+    "id": 17,
+    "type": "Practice",
+    "section": "2. Practice Part 5",
+    "text": "Over the past three weeks, our recruitment consultants ________ dozens of resumes from qualified specialists.",
+    "options": {
+      "A": "receive",
+      "B": "has been receiving",
+      "C": "have received",
+      "D": "were received"
+    },
+    "correctAnswer": "C",
+    "explanation": "Chủ ngữ số nhiều consultants và dấu hiệu Over the past three weeks ➔ have received."
+  },
+  {
+    "id": 18,
+    "type": "Listening",
+    "section": "3. Listening Part 2",
+    "hasAudio": true,
+    "audioText": "Have you finished reviewing the applicants resumes yet? A. Yes, I selected four candidates for interviews. B. In the personnel office on the fourth floor. C. No, the position was filled last month.",
+    "text": "🎧 [Part 2 — Câu 18] Have you finished reviewing the applicants' resumes yet?",
+    "options": {
+      "A": "Yes, I selected four candidates for interviews.",
+      "B": "In the personnel office on the fourth floor.",
+      "C": "No, the position was filled last month."
+    },
+    "correctAnswer": "A",
+    "explanation": "Hỏi đã rà soát hồ sơ xong chưa? ➔ Trả lời: Rồi, tôi đã chọn được 4 ứng viên để phỏng vấn."
+  },
+  {
+    "id": 19,
+    "type": "Listening",
+    "section": "3. Listening Part 2",
+    "hasAudio": true,
+    "audioText": "How long have you been conducting interviews for the sales manager position? A. Since nine oclock this morning. B. Next Tuesday in the main conference room. C. Yes, he has excellent qualifications.",
+    "text": "🎧 [Part 2 — Câu 19] How long have you been conducting interviews for the sales manager position?",
+    "options": {
+      "A": "Since nine o'clock this morning.",
+      "B": "Next Tuesday in the main conference room.",
+      "C": "Yes, he has excellent qualifications."
+    },
+    "correctAnswer": "A",
+    "explanation": "Hỏi khoảng thời gian bao lâu (How long) ➔ Trả lời: Kể từ 9 giờ sáng nay (Since nine o'clock)."
+  },
+  {
+    "id": 20,
+    "type": "Listening",
+    "section": "3. Listening Part 2",
+    "hasAudio": true,
+    "audioText": "Who has been mentoring the new engineering recruits? A. Because the training program was revised. B. Mr. Tanaka has been guiding them all week. C. At the downtown corporate headquarters.",
+    "text": "🎧 [Part 2 — Câu 20] Who has been mentoring the new engineering recruits?",
+    "options": {
+      "A": "Because the training program was revised.",
+      "B": "Mr. Tanaka has been guiding them all week.",
+      "C": "At the downtown corporate headquarters."
+    },
+    "correctAnswer": "B",
+    "explanation": "Hỏi ai đang kèm cặp (Who) ➔ Trả lời: Ông Tanaka đã hướng dẫn họ suốt tuần qua."
   }
 ];
 
