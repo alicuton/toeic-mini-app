@@ -4793,9 +4793,15 @@ function renderFullMistakeBank() {
         </p>
       </div>
       <div class="fc-back hidden pt-3 border-t border-[#E8E0D5] text-xs space-y-2 text-[#1C1917]">
-        <div class="flex space-x-3 text-xs font-mono p-2.5 bg-[#FAF7F2] rounded-xl border border-[#E8E0D5]">
-          <span>Bạn chọn: <b class="text-rose-600">${m.selected || '-'}</b></span>
-          <span>Đáp án đúng: <b class="text-emerald-700">${m.correct || '-'}</b></span>
+        <div class="flex flex-col space-y-1 text-xs font-mono p-3 bg-[#FAF7F2] rounded-xl border border-[#E8E0D5]">
+          <div class="flex items-center space-x-2">
+            <span class="text-[#78716C]">Bạn chọn:</span>
+            <b class="text-rose-600 font-bold">${m.selectedWord || m.selected || '-'}</b>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="text-[#78716C]">Đáp án đúng:</span>
+            <b class="text-emerald-700 font-bold">${m.correctWord || m.correct || '-'}</b>
+          </div>
         </div>
         <p class="text-xs text-[#1C1917] leading-relaxed"><b class="text-emerald-700">Giải thích chi tiết:</b> ${m.expl || m.explanation}</p>
         ${m.trap ? `<p class="text-xs text-[#D4891A] bg-[#FDF3E0] p-2.5 rounded-xl border border-[#F5A623]/30 leading-relaxed font-medium">${m.trap}</p>` : ''}
