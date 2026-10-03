@@ -97,28 +97,30 @@
 
     <!-- ==================== VIEW 1: DASHBOARD ==================== -->
     <section id="viewDashboard" class="space-y-4 view-transition">
-      <!-- Welcome Banner: Simple Brand Warm Card -->
-      <div class="bg-gradient-to-br from-[#1C1917] to-[#292524] rounded-3xl p-5 text-white shadow-md relative overflow-hidden">
+      <!-- Welcome Banner: Đổi sang màu Cam Ấm Nhạt sang trọng theo yêu cầu -->
+      <div class="bg-[#FDF3E0] border border-[#F5A623]/30 rounded-3xl p-5 text-[#1C1917] shadow-xs relative overflow-hidden">
         <div class="relative z-10 flex items-center justify-between">
-          <div>
-            <div class="inline-flex items-center space-x-1.5 bg-white/10 px-3 py-1 rounded-full text-xs font-bold text-[#F5A623] mb-2.5">
+          <div class="pr-2">
+            <div class="inline-flex items-center space-x-1.5 bg-white px-3 py-1 rounded-full text-xs font-bold text-[#D4891A] border border-[#F5A623]/30 mb-2.5 shadow-2xs">
               <span>🔥 Chuỗi 9 ngày học liên tục</span>
             </div>
-            <h2 class="text-xl font-extrabold tracking-tight" id="dashWelcome">Chào anh Toản!</h2>
-            <p class="text-sm text-stone-300 mt-1">Sẵn sàng bứt phá mục tiêu TOEIC 650+ hôm nay nhé.</p>
+            <h2 class="text-xl font-extrabold tracking-tight text-[#1C1917]" id="dashWelcome">Chào anh Toản!</h2>
+            <p class="text-xs text-[#78716C] mt-1 leading-relaxed">Sẵn sàng bứt phá mục tiêu TOEIC 650+ hôm nay nhé.</p>
           </div>
-          <!-- Progress Ring -->
+          <!-- Progress Ring Căn chuẩn giữa tuyệt đối -->
           <div class="relative w-16 h-16 flex items-center justify-center flex-shrink-0">
-            <svg class="w-16 h-16">
-              <circle class="text-stone-700" stroke-width="4.5" stroke="currentColor" fill="transparent" r="26" cx="32" cy="32"/>
-              <circle class="text-[#F5A623] progress-ring__circle" stroke-width="4.5" stroke-dasharray="163.36" stroke-dashoffset="40.84" stroke-linecap="round" stroke="currentColor" fill="transparent" r="26" cx="32" cy="32"/>
+            <svg class="w-16 h-16 transform -rotate-90">
+              <circle class="text-[#E8E0D5]" stroke-width="4.5" stroke="currentColor" fill="transparent" r="26" cx="32" cy="32"/>
+              <circle class="text-[#F5A623]" stroke-width="4.5" stroke-dasharray="163.36" stroke-dashoffset="0" stroke-linecap="round" stroke="currentColor" fill="transparent" r="26" cx="32" cy="32"/>
             </svg>
-            <span class="absolute text-xs font-extrabold text-[#F5A623]">9/9</span>
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <span class="text-xs font-black text-[#D4891A]">9/9</span>
+            </div>
           </div>
         </div>
-        <div class="mt-4 pt-3 border-t border-stone-800 flex items-center justify-between text-xs text-stone-400 font-medium">
-          <span>Đã hoàn thành: <b class="text-white">9 bài học</b></span>
-          <span class="text-[#F5A623] font-bold">Lộ trình liên tục (Không giới hạn)</span>
+        <div class="mt-4 pt-3 border-t border-[#E8E0D5]/60 flex items-center justify-between text-xs text-[#78716C] font-semibold">
+          <span>Đã hoàn thành: <b class="text-[#1C1917]">9 bài học</b></span>
+          <span class="text-[#D4891A] font-extrabold">Lộ trình liên tục (Không giới hạn)</span>
         </div>
       </div>
 

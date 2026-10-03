@@ -105,9 +105,11 @@ const historicalLessons = [
 // Initialize and Auto-detect Student from Telegram WebApp
 document.addEventListener('DOMContentLoaded', async () => {
   autoDetectTelegramUser();
-  await loadArchivedData();
+  renderHistoryLessons(); // Render ngay lập tức không chờ fetch
+  renderFullMistakeBank(); // Render ngay lập tức không chờ fetch
   loadCurrentQuestion();
-  renderHistoryLessons();
+  await loadArchivedData();
+  renderHistoryLessons(); // Cập nhật lại sau khi có data chi tiết
   renderFullMistakeBank();
   fetchServerData();
 });
