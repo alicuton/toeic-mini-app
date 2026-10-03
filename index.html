@@ -2124,7 +2124,7 @@ async function fetchServerData() {
       const data = await res.json();
       if (data.success) {
         document.getElementById('headerSubtitle').innerText = `Target 650+ • Lesson ${data.next_lesson_number}`;
-        document.getElementById('dashMistakeCount').innerText = `${data.mistake_bank_count} lỗi`;
+        // dashMistakeCount calculated from fullMistakesData
       }
     }
   } catch (e) {
@@ -2206,11 +2206,11 @@ function openHistoryDetail(lessonNum) {
     document.getElementById('histGrammarTrap').innerText = fullData.grammar.trap || 'Cẩn thận các bẫy chia thì và từ loại.';
   }
 
-  // 3. Render Kết quả bài làm cũ: BẢNG DẠNG CỘT CHUẨN GPT
+  // 3. Render Kết quả bài làm cũ theo đúng học viên hiện tại (Toản hoặc Hằng)
   const practiceContainer = document.getElementById('histContentPractice');
   if (practiceContainer) {
     practiceContainer.innerHTML = '';
-    const questions = lesson.questions || [];
+    const questions = currentStudent === 'Nguyen Dinh Toan' ? (lesson.questionsToan || []) : (lesson.questionsHang || []);
     if (questions.length > 0) {
       const tableWrapper = document.createElement('div');
       tableWrapper.className = 'bg-white rounded-2xl border border-[#E8E0D5] overflow-hidden shadow-2xs text-xs';
