@@ -1,0 +1,212 @@
+[
+  {
+    "lesson": 3,
+    "date": "2026-09-25",
+    "student": "Le Hang",
+    "question": 7,
+    "selected": "D",
+    "correct": "B",
+    "concept": "present_continuous_temporary_action",
+    "explanation": "Lỗi bẫy: present continuous temporary action"
+  },
+  {
+    "lesson": 3,
+    "date": "2026-09-25",
+    "student": "Le Hang",
+    "question": 12,
+    "selected": "A",
+    "correct": "B",
+    "concept": "noun_after_adjective_subject_position",
+    "explanation": "Lỗi bẫy: noun after adjective subject position"
+  },
+  {
+    "lesson": 3,
+    "date": "2026-09-25",
+    "student": "Le Hang",
+    "question": 14,
+    "selected": "A",
+    "correct": "B",
+    "concept": "compound_noun_expiration_date",
+    "explanation": "Lỗi bẫy: compound noun expiration date"
+  },
+  {
+    "lesson": 3,
+    "date": "2026-09-25",
+    "student": "Nguyen Dinh Toan",
+    "question": 7,
+    "selected": "C",
+    "correct": "B",
+    "concept": "present_continuous_temporary_action",
+    "explanation": "Lỗi bẫy: present continuous temporary action"
+  },
+  {
+    "lesson": 3,
+    "date": "2026-09-25",
+    "student": "Nguyen Dinh Toan",
+    "question": 12,
+    "selected": "C",
+    "correct": "B",
+    "concept": "noun_after_adjective_subject_position",
+    "explanation": "Lỗi bẫy: noun after adjective subject position"
+  },
+  {
+    "lesson": 4,
+    "date": "2026-09-26",
+    "student": "Nguyen Dinh Toan",
+    "question": 7,
+    "selected": "A",
+    "correct": "B",
+    "concept": "present_continuous_with_temporary_or_now",
+    "explanation": "Lỗi bẫy: present continuous with temporary or now"
+  },
+  {
+    "lesson": 4,
+    "date": "2026-09-26",
+    "student": "Nguyen Dinh Toan",
+    "question": 8,
+    "selected": "B",
+    "correct": "A",
+    "concept": "gerund_after_preposition_or_verb_pattern",
+    "explanation": "Lỗi bẫy: gerund after preposition or verb pattern"
+  },
+  {
+    "lesson": 4,
+    "date": "2026-09-26",
+    "student": "Nguyen Dinh Toan",
+    "question": 9,
+    "selected": "A",
+    "correct": "B",
+    "concept": "stative_verb_belong_no_continuous",
+    "explanation": "Lỗi bẫy: stative verb belong no continuous"
+  },
+  {
+    "lesson": 4,
+    "date": "2026-09-26",
+    "student": "Nguyen Dinh Toan",
+    "question": 11,
+    "selected": "A",
+    "correct": "B",
+    "concept": "word_form_characteristic_noun",
+    "explanation": "Lỗi bẫy: word form characteristic noun"
+  },
+  {
+    "lesson": 4,
+    "date": "2026-09-26",
+    "student": "Le Hang",
+    "question": 6,
+    "selected": "A",
+    "correct": "B",
+    "concept": "consider_in_continuous_meaning_weighing_options",
+    "explanation": "Lỗi bẫy: consider in continuous meaning weighing options"
+  },
+  {
+    "lesson": 4,
+    "date": "2026-09-26",
+    "student": "Le Hang",
+    "question": 14,
+    "selected": "C",
+    "correct": "B",
+    "concept": "present_continuous_temporary_this_month",
+    "explanation": "Lỗi bẫy: present continuous temporary this month"
+  },
+  {
+    "lesson": 6,
+    "date": "2026-09-28",
+    "student": "Le Hang",
+    "question": 13,
+    "selected": "B",
+    "correct": "C",
+    "concept": "past_continuous_with_while",
+    "explanation": "Lỗi bẫy: past continuous with while"
+  },
+  {
+    "lesson": 6,
+    "date": "2026-09-28",
+    "student": "Le Hang",
+    "question": 16,
+    "selected": "A",
+    "correct": "B",
+    "concept": "past_continuous_with_while",
+    "explanation": "Lỗi bẫy: past continuous with while"
+  },
+  {
+    "lesson": 6,
+    "date": "2026-09-28",
+    "student": "Nguyen Dinh Toan",
+    "question": 12,
+    "selected": "B",
+    "correct": "A",
+    "concept": "must_plus_base_verb",
+    "explanation": "Lỗi bẫy: must plus base verb"
+  },
+  {
+    "lesson": 6,
+    "date": "2026-09-28",
+    "student": "Nguyen Dinh Toan",
+    "question": 16,
+    "selected": "A",
+    "correct": "B",
+    "concept": "past_continuous_with_while",
+    "explanation": "Lỗi bẫy: past continuous with while"
+  },
+  {
+    "lesson": 7,
+    "date": "2026-09-29",
+    "student": "Nguyen Dinh Toan",
+    "question": 2,
+    "selected": "B",
+    "correct": "A",
+    "concept": "subject_verb_agreement_was_with_singular_office",
+    "explanation": "Lỗi bẫy: subject verb agreement was with singular office"
+  },
+  {
+    "lesson": 7,
+    "date": "2026-09-29",
+    "student": "Le Hang",
+    "question": 4,
+    "selected": "D",
+    "correct": "B",
+    "concept": "present_simple_habitual_holds_vs_past_plural",
+    "explanation": "Lỗi bẫy: present simple habitual holds vs past plural"
+  },
+  {
+    "lesson": 8,
+    "date": "2026-10-01",
+    "student": "Nguyen Dinh Toan",
+    "question": 1,
+    "selected": "D",
+    "correct": "B",
+    "concept": "modal_verb_must_plus_bare_infinitive",
+    "explanation": "Lỗi bẫy: modal verb must plus bare infinitive"
+  },
+  {
+    "lesson": 8,
+    "date": "2026-10-01",
+    "student": "Nguyen Dinh Toan",
+    "question": 4,
+    "selected": "A",
+    "correct": "B",
+    "concept": "present_simple_habitual_holds_vs_continuous",
+    "explanation": "Lỗi bẫy: present simple habitual holds vs continuous"
+  },
+  {
+    "lesson": 8,
+    "date": "2026-10-01",
+    "student": "Nguyen Dinh Toan",
+    "question": 8,
+    "selected": "B",
+    "correct": "C",
+    "concept": "office_equipment_vocab_capacity_or_durable",
+    "explanation": "Lỗi bẫy: office equipment vocab capacity or durable"
+  },
+  {
+    "lesson": 9,
+    "date": "2026-10-02",
+    "student": "Nguyen Dinh Toan",
+    "question": 14,
+    "selected": "A",
+    "correct": "B",
+    "concept": "present_perfect_result_number_of_items_finished",
+    "explanation": "Lỗi bẫy: present perfect result number of items finished"
+  }
+]

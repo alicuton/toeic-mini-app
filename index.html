@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Simple TOEIC Coach — Mini App</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Telegram WebApp SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <!-- Font Inter chuẩn Typography Simple Media -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Đồng bộ duy nhất font Inter cho TOÀN BỘ APP */
+    * {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    }
+    /* Nâng kích thước chữ cơ sở cho iPhone to rõ thực thụ */
+    html {
+      font-size: 18px; /* Tăng từ 16px lên 18px */
+    }
+    body {
+      -webkit-tap-highlight-color: transparent;
+      background-color: #FAF7F2; /* Surface Cream Simple Brand */
+      color: #1C1917; /* Warm Near-Black Text */
+      font-size: 1.05rem; /* ~19px */
+      line-height: 1.6;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .view-transition {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .progress-ring__circle {
+      transition: stroke-dashoffset 0.5s ease-in-out;
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#F5A623', /* Simple Master Primary Orange */
+              dark: '#D4891A',    /* Darker Orange */
+              light: '#FDF3E0',   /* Soft Warm Tint */
+            },
+            surface: {
+              DEFAULT: '#FFFFFF',
+              cream: '#FAF7F2',   /* Warm Cream */
+              dark: '#F0EBE1',    /* Deeper Neutral */
+              border: '#E8E0D5',  /* Border Divider */
+            },
+            neutral: {
+              text: '#1C1917',    /* Warm Near-Black */
+              muted: '#78716C',   /* Warm Gray */
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="antialiased min-h-screen pb-24 select-none custom-scrollbar text-[#1C1917]">
+
+  <!-- TOP APP BAR -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#E8E0D5] px-4 py-3.5 flex items-center justify-between">
+    <div class="flex items-center space-x-2.5">
+      <div class="w-10 h-10 rounded-2xl bg-[#F5A623] text-white flex items-center justify-center font-extrabold text-lg shadow-sm">
+        🎓
+      </div>
+      <div>
+        <h1 class="text-base font-extrabold text-[#1C1917] leading-tight">Simple TOEIC Coach</h1>
+        <p class="text-xs text-[#78716C] font-semibold" id="headerSubtitle">Target 650+ • Lesson 10</p>
+      </div>
+    </div>
+    
+    <!-- User Badge (Tự nhận diện từ Telegram WebApp, có thể click đổi để test) -->
+    <div class="flex items-center space-x-1.5 bg-[#FDF3E0] border border-[#F5A623]/40 px-3 py-1.5 rounded-full text-xs font-bold text-[#D4891A] cursor-pointer hover:bg-[#F5A623] hover:text-white transition-all" id="userBadge" onclick="toggleStudentModal()" title="Bấm để đổi học viên (Demo)">
+      <span class="w-2 h-2 rounded-full bg-[#F5A623] animate-pulse"></span>
+      <span id="headerStudentName">Toan Nguyen</span>
+      <span class="text-[10px]">▾</span>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-md mx-auto px-4 pt-4">
+
+    <!-- ==================== VIEW 1: DASHBOARD ==================== -->
+    <section id="viewDashboard" class="space-y-4 view-transition">
+      <!-- Welcome Banner: Simple Brand Warm Card -->
+      <div class="bg-gradient-to-br from-[#1C1917] to-[#292524] rounded-3xl p-5 text-white shadow-md relative overflow-hidden">
+        <div class="relative z-10 flex items-center justify-between">
+          <div>
+            <div class="inline-flex items-center space-x-1.5 bg-white/10 px-3 py-1 rounded-full text-xs font-bold text-[#F5A623] mb-2.5">
+              <span>🔥 Chuỗi 9 ngày học liên tục</span>
+            </div>
+            <h2 class="text-xl font-extrabold tracking-tight" id="dashWelcome">Chào anh Toản!</h2>
+            <p class="text-sm text-stone-300 mt-1">Sẵn sàng bứt phá mục tiêu TOEIC 650+ hôm nay nhé.</p>
+          </div>
+          <!-- Progress Ring -->
+          <div class="relative w-16 h-16 flex items-center justify-center flex-shrink-0">
+            <svg class="w-16 h-16">
+              <circle class="text-stone-700" stroke-width="4.5" stroke="currentColor" fill="transparent" r="26" cx="32" cy="32"/>
+              <circle class="text-[#F5A623] progress-ring__circle" stroke-width="4.5" stroke-dasharray="163.36" stroke-dashoffset="40.84" stroke-linecap="round" stroke="currentColor" fill="transparent" r="26" cx="32" cy="32"/>
+            </svg>
+            <span class="absolute text-xs font-extrabold text-[#F5A623]">9/9</span>
+          </div>
+        </div>
+        <div class="mt-4 pt-3 border-t border-stone-800 flex items-center justify-between text-xs text-stone-400 font-medium">
+          <span>Đã hoàn thành: <b class="text-white">9 bài học</b></span>
+          <span class="text-[#F5A623] font-bold">Lộ trình liên tục (Không giới hạn)</span>
+        </div>
+      </div>
+
+      <!-- Quick KPI Stats (To rõ, dễ đọc) -->
+      <div class="grid grid-cols-3 gap-3">
+        <div class="bg-white p-3.5 rounded-2xl border border-[#E8E0D5] shadow-xs text-center">
+          <p class="text-xs font-semibold text-[#78716C]">Độ chính xác</p>
+          <p class="text-xl font-extrabold text-[#1C1917] mt-1" id="dashAccuracy">94.4%</p>
+          <span class="text-xs text-emerald-600 font-bold">↑ +2.1%</span>
+        </div>
+        <div class="bg-white p-3.5 rounded-2xl border border-[#E8E0D5] shadow-xs text-center">
+          <p class="text-xs font-semibold text-[#78716C]">Từ đã vững</p>
+          <p class="text-xl font-extrabold text-[#1C1917] mt-1" id="dashMasteredCount">85</p>
+          <span class="text-xs text-[#D4891A] font-bold">Mastered</span>
+        </div>
+        <div class="bg-white p-3.5 rounded-2xl border border-[#E8E0D5] shadow-xs text-center cursor-pointer hover:border-[#F5A623] transition-all" onclick="showView('viewMistakeBank')">
+          <p class="text-xs font-semibold text-[#78716C]">Sổ lỗi sai</p>
+          <p class="text-xl font-extrabold text-[#D4891A] mt-1" id="dashMistakeCount">1 lỗi</p>
+          <span class="text-xs text-[#78716C] font-semibold">Xem ngay ➔</span>
+        </div>
+      </div>
+
+      <!-- Thẻ đặc biệt: Nút Mở Lại Kết Quả Bài Vừa Nộp (Nếu đã nộp bài) -->
+      <div id="cardRecentResult" class="hidden bg-[#FDF3E0] border border-[#F5A623]/40 rounded-3xl p-4 flex items-center justify-between">
+        <div class="space-y-0.5">
+          <p class="text-xs font-extrabold text-[#D4891A] uppercase tracking-wide">Bài thi vừa hoàn thành</p>
+          <p class="text-sm font-bold text-[#1C1917]">Xem lại bảng điểm & rà soát đáp án</p>
+        </div>
+        <button onclick="showView('viewResult')" class="px-3.5 py-2 bg-[#F5A623] hover:bg-[#D4891A] text-white rounded-xl text-xs font-extrabold transition-all shadow-xs">
+          Xem lại ➔
+        </button>
+      </div>
+
+      <!-- Today's Lesson Card -->
+      <div class="bg-white rounded-3xl p-5 border border-[#E8E0D5] shadow-xs space-y-3.5">
+        <div class="flex items-center justify-between">
+          <span class="px-3 py-1 rounded-full bg-[#FDF3E0] text-[#D4891A] text-xs font-extrabold tracking-wide">BÀI HỌC HÔM NAY</span>
+          <span class="text-xs font-semibold text-[#78716C]">15 phút • Lesson 10</span>
+        </div>
+        <div>
+          <h3 class="text-lg font-extrabold text-[#1C1917] leading-snug">Office Equipment & Technical Troubleshooting</h3>
+          <p class="text-sm text-[#78716C] mt-1.5 leading-relaxed">
+            Học 10 từ vựng cốt lõi Part 5/6, luyện nghe audio Part 2/3 và ôn tập bẫy Quá khứ tiếp diễn bị động.
+          </p>
+        </div>
+
+        <div class="pt-2 flex flex-col space-y-2.5">
+          <button onclick="startLessonStudy()" class="w-full min-h-[52px] px-5 bg-[#F5A623] hover:bg-[#D4891A] active:scale-[0.98] text-white rounded-2xl font-bold text-base shadow-sm flex items-center justify-center space-x-2 transition-all">
+            <span>📖 Bắt đầu học bài</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+          </button>
+          <button onclick="startQuizDirectly()" class="w-full min-h-[46px] px-4 bg-[#FAF7F2] hover:bg-[#F0EBE1] text-[#78716C] rounded-2xl font-bold text-xs transition-all text-center">
+            Đã thuộc bài? ➔ Vào làm bài trắc nghiệm ngay
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Access: Lịch sử bài học cũ -->
+      <div class="bg-white rounded-3xl p-5 border border-[#E8E0D5] shadow-xs flex items-center justify-between cursor-pointer hover:border-[#F5A623] transition-all" onclick="showView('viewHistory')">
+        <div class="flex items-center space-x-3.5">
+          <div class="w-11 h-11 rounded-2xl bg-[#FAF7F2] border border-[#E8E0D5] flex items-center justify-center text-xl flex-shrink-0">
+            📚
+          </div>
+          <div class="space-y-1">
+            <h4 class="text-base font-extrabold text-[#1C1917] leading-tight">Kho lưu trữ bài học cũ</h4>
+            <p class="text-xs text-[#78716C] font-medium leading-relaxed">Xem lại lý thuyết từ Lesson 01 đến 09</p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-1 pl-3 flex-shrink-0">
+          <span class="text-xs font-extrabold text-[#D4891A] bg-[#FDF3E0] px-3 py-1.5 rounded-xl border border-[#F5A623]/30">Xem ➔</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW 2: STUDY SCREEN (BÀI HỌC) ==================== -->
+    <section id="viewStudy" class="space-y-4 hidden view-transition">
+      <!-- Navigation Header -->
+      <div class="flex items-center justify-between">
+        <button onclick="showView('viewDashboard')" class="inline-flex items-center space-x-1 text-sm font-bold text-[#78716C] hover:text-[#1C1917]">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          <span>Tổng quan</span>
+        </button>
+        <span class="text-xs font-extrabold text-[#D4891A] bg-[#FDF3E0] px-3.5 py-1 rounded-full">Chặng 1: Nạp Kiến Thức</span>
+      </div>
+
+      <!-- Tab Buttons for Study -->
+      <div class="flex border-b border-[#E8E0D5] text-sm font-extrabold">
+        <button id="tabStudyReview" onclick="switchStudyTab('review')" class="flex-1 py-3 text-center border-b-2 border-[#F5A623] text-[#D4891A]">1. Review</button>
+        <button id="tabStudyVocab" onclick="switchStudyTab('vocab')" class="flex-1 py-3 text-center text-[#78716C] hover:text-[#1C1917] border-b-2 border-transparent">2. Từ Vựng (10)</button>
+        <button id="tabStudyGrammar" onclick="switchStudyTab('grammar')" class="flex-1 py-3 text-center text-[#78716C] hover:text-[#1C1917] border-b-2 border-transparent">3. Ngữ Pháp & Bẫy</button>
+      </div>
+
+      <!-- Study Sub-tab 1: Review -->
+      <div id="studyContentReview" class="space-y-3.5">
+        <div class="bg-white p-5 rounded-3xl border border-[#E8E0D5] shadow-xs space-y-3">
+          <h4 class="text-xs font-extrabold text-[#D4891A] uppercase tracking-wider">Ôn tập Mistake Bank hôm trước</h4>
+          <p class="text-sm text-[#1C1917] leading-relaxed">
+            Hôm trước mình đã gặp bẫy thể Bị động của thì Quá khứ tiếp diễn. Nhắc lại để không lặp lại lỗi này nhé:
+          </p>
+          <div class="p-4 bg-[#FDF3E0] rounded-2xl border border-[#F5A623]/40 text-sm text-[#1C1917] space-y-1.5">
+            <p class="font-extrabold text-[#D4891A]">⚠️ Công thức bị động tiếp diễn:</p>
+            <p class="text-xs bg-white px-3 py-1.5 rounded-lg border border-[#E8E0D5] font-bold">S + was/were + being + V3/ed</p>
+            <p class="text-xs text-[#78716C] pt-1">Ví dụ: The room was being <b>maintained</b> (TUYỆT ĐỐI không dùng maintaining).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Study Sub-tab 2: 10 Vocabularies with Audio -->
+      <div id="studyContentVocab" class="space-y-3.5 hidden">
+        <p class="text-xs text-[#78716C] font-semibold px-1">Chạm vào nút 🔊 để nghe phát âm giọng bản xứ chuẩn:</p>
+        <div class="space-y-3" id="vocabListContainer">
+          <!-- Vocab Cards -->
+          <div class="bg-white p-4 rounded-2xl border border-[#E8E0D5] shadow-xs flex items-center justify-between">
+            <div class="space-y-1 pr-3">
+              <div class="flex items-center space-x-2">
+                <span class="text-base font-extrabold text-[#1C1917]">determine</span>
+                <span class="text-[11px] font-bold text-[#78716C] px-2 py-0.5 bg-[#FAF7F2] rounded-md">verb</span>
+              </div>
+              <p class="text-sm text-[#D4891A] font-bold">xác định, quyết định</p>
+              <p class="text-xs text-[#78716C] italic leading-normal">"We need to determine the cause of the delay."</p>
+            </div>
+            <button onclick="speakWord('determine')" class="w-11 h-11 bg-[#FDF3E0] text-[#D4891A] hover:bg-[#F5A623] hover:text-white rounded-2xl transition-all flex items-center justify-center flex-shrink-0 text-lg shadow-xs">
+              🔊
+            </button>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl border border-[#E8E0D5] shadow-xs flex items-center justify-between">
+            <div class="space-y-1 pr-3">
+              <div class="flex items-center space-x-2">
+                <span class="text-base font-extrabold text-[#1C1917]">allocate</span>
+                <span class="text-[11px] font-bold text-[#78716C] px-2 py-0.5 bg-[#FAF7F2] rounded-md">verb</span>
+              </div>
+              <p class="text-sm text-[#D4891A] font-bold">phân bổ, cấp phát ngân sách</p>
+              <p class="text-xs text-[#78716C] italic leading-normal">"The director allocated extra budget for software."</p>
+            </div>
+            <button onclick="speakWord('allocate')" class="w-11 h-11 bg-[#FDF3E0] text-[#D4891A] hover:bg-[#F5A623] hover:text-white rounded-2xl transition-all flex items-center justify-center flex-shrink-0 text-lg shadow-xs">
+              🔊
+            </button>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl border border-[#E8E0D5] shadow-xs flex items-center justify-between">
+            <div class="space-y-1 pr-3">
+              <div class="flex items-center space-x-2">
+                <span class="text-base font-extrabold text-[#1C1917]">troubleshoot</span>
+                <span class="text-[11px] font-bold text-[#78716C] px-2 py-0.5 bg-[#FAF7F2] rounded-md">verb</span>
+              </div>
+              <p class="text-sm text-[#D4891A] font-bold">khắc phục sự cố, xử lý lỗi</p>
+              <p class="text-xs text-[#78716C] italic leading-normal">"He is trained to troubleshoot network issues."</p>
+            </div>
+            <button onclick="speakWord('troubleshoot')" class="w-11 h-11 bg-[#FDF3E0] text-[#D4891A] hover:bg-[#F5A623] hover:text-white rounded-2xl transition-all flex items-center justify-center flex-shrink-0 text-lg shadow-xs">
+              🔊
+            </button>
+          </div>
+        </div>
+
+        <!-- Collocations Box -->
+        <div class="bg-[#1C1917] text-white p-5 rounded-3xl space-y-2.5">
+          <p class="text-xs font-extrabold text-[#F5A623] uppercase tracking-wider">💡 Collocations Cần Nhớ Hôm Nay:</p>
+          <ul class="space-y-2 text-stone-200 text-xs">
+            <li class="flex items-start space-x-2">
+              <span class="text-[#F5A623]">•</span>
+              <span><b class="text-white">sign an agreement</b>: ký kết thỏa thuận</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-[#F5A623]">•</span>
+              <span><b class="text-white">troubleshoot a problem</b>: xử lý sự cố kỹ thuật</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-[#F5A623]">•</span>
+              <span><b class="text-white">compatible with</b>: tương thích với hệ thống</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-[#F5A623]">•</span>
+              <span><b class="text-white">grant access</b>: cấp quyền truy cập tài liệu</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Study Sub-tab 3: Grammar & TOEIC Trap -->
+      <div id="studyContentGrammar" class="space-y-3.5 hidden">
+        <div class="bg-white p-5 rounded-3xl border border-[#E8E0D5] shadow-xs space-y-3 text-sm">
+          <h4 class="font-extrabold text-[#1C1917] text-base">Present Perfect vs. Past Simple</h4>
+          <p class="text-[#78716C] leading-relaxed text-xs">
+            • <b>Quá khứ đơn (Past Simple)</b>: Đã chấm dứt hoàn toàn tại thời điểm cụ thể trong quá khứ (yesterday, last week, ago).<br>
+            • <b>Hiện tại hoàn thành (Present Perfect)</b>: Kéo dài từ quá khứ đến hiện tại hoặc vừa mới xảy ra (since, for, recently).
+          </p>
+
+          <div class="p-4 bg-rose-50 border border-rose-200 rounded-2xl space-y-2 text-rose-950">
+            <p class="font-extrabold text-xs text-rose-700 flex items-center space-x-1">
+              <span>⚠️ TOEIC TRAP (BẪY THI PART 5)</span>
+            </p>
+            <p class="text-xs text-rose-900 leading-relaxed">
+              Nếu trong câu xuất hiện cụm <b>"Over the last three months"</b> hoặc <b>"In recent years"</b> ➔ 99% chọn thì <b>Hiện tại hoàn thành (have/has + V3)</b>, TUYỆT ĐỐI không chọn Quá khứ đơn!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Action -->
+      <div class="pt-2">
+        <button onclick="startQuizDirectly()" class="w-full min-h-[52px] bg-[#F5A623] hover:bg-[#D4891A] active:scale-[0.98] text-white rounded-2xl font-bold text-base shadow-sm flex items-center justify-center space-x-2 transition-all">
+          <span>🎯 Đã hiểu bài ➔ Vào làm trắc nghiệm</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW 3: QUIZ (LÀM BÀI TRẮC NGHIỆM) ==================== -->
+    <section id="viewQuiz" class="space-y-4 hidden view-transition">
+      <!-- Progress Bar & Question Counter -->
+      <div class="space-y-2">
+        <div class="flex items-center justify-between text-xs font-bold text-[#78716C]">
+          <span id="quizQuestionIndex">Câu 1 / 5</span>
+          <span id="quizSectionName" class="text-[#D4891A] bg-[#FDF3E0] px-3 py-1 rounded-full text-xs">Part 5: Reading</span>
+        </div>
+        <div class="w-full bg-[#E8E0D5] h-2.5 rounded-full overflow-hidden">
+          <div id="quizProgressBar" class="bg-[#F5A623] h-full w-[20%] transition-all duration-300"></div>
+        </div>
+      </div>
+
+      <!-- Audio Box (Nếu có câu Listening) -->
+      <div id="quizAudioContainer" class="hidden bg-[#FDF3E0] border border-[#F5A623]/30 p-4 rounded-3xl flex items-center justify-between">
+        <div class="flex items-center space-x-2.5 text-xs font-bold text-[#1C1917]">
+          <span class="text-xl">🎧</span>
+          <span>Audio Bài Nghe TOEIC</span>
+        </div>
+        <button id="btnPlayQuizAudio" onclick="toggleQuizAudio()" class="px-4 py-2 bg-[#F5A623] text-white rounded-xl text-xs font-extrabold hover:bg-[#D4891A] flex items-center space-x-1.5 shadow-xs">
+          <span>▶ Phát audio</span>
+        </button>
+      </div>
+
+      <!-- Question Card (Font chữ to rõ ràng) -->
+      <div class="bg-white p-5 rounded-3xl border border-[#E8E0D5] shadow-xs space-y-4">
+        <p class="text-base font-bold text-[#1C1917] leading-relaxed" id="quizQuestionText">
+          The IT department is responsible for ------- all hardware and network issues within 24 hours.
+        </p>
+
+        <!-- Options Container (Nút to, dễ chạm ngón cái) -->
+        <div class="space-y-3" id="quizOptionsContainer">
+          <!-- Dynamic rendered in app.js -->
+        </div>
+      </div>
+
+      <!-- Navigation & Submit Bottom Bar -->
+      <div class="flex items-center space-x-3 pt-2">
+        <button id="btnPrevQuestion" onclick="prevQuestion()" class="flex-1 min-h-[50px] bg-white border border-[#E8E0D5] text-[#1C1917] rounded-2xl font-bold text-sm hover:bg-[#FAF7F2] transition-all disabled:opacity-40">
+          ← Câu trước
+        </button>
+        <button id="btnNextQuestion" onclick="nextQuestion()" class="flex-1 min-h-[50px] bg-[#F5A623] text-white rounded-2xl font-bold text-sm hover:bg-[#D4891A] shadow-xs transition-all">
+          Câu tiếp theo →
+        </button>
+        <button id="btnSubmitQuiz" onclick="submitQuiz()" class="hidden flex-1 min-h-[50px] bg-emerald-600 text-white rounded-2xl font-bold text-sm hover:bg-emerald-700 shadow-md shadow-emerald-600/20 transition-all">
+          🎯 Hoàn thành & Nộp bài
+        </button>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW 4: RESULT DASHBOARD (CHẤM ĐIỂM XONG) ==================== -->
+    <section id="viewResult" class="space-y-4 hidden view-transition">
+      <!-- Result Banner -->
+      <div class="bg-white rounded-3xl p-6 border border-[#E8E0D5] shadow-xs text-center space-y-3">
+        <div class="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 text-3xl flex items-center justify-center mx-auto shadow-inner">
+          🎉
+        </div>
+        <div>
+          <h2 class="text-xl font-extrabold text-[#1C1917]">Đã Hoàn Thành Bài Thi!</h2>
+          <p class="text-xs text-[#78716C] mt-1 font-semibold">Kết quả đã được khóa và ghi nhận vào hệ thống</p>
+        </div>
+
+        <!-- Score Card Dashboard (Khung sạch đẹp theo phong cách Simple) -->
+        <div class="bg-[#FAF7F2] rounded-2xl p-4 border border-[#E8E0D5] text-left space-y-2 text-xs font-semibold">
+          <div class="flex justify-between text-[#78716C]">
+            <span>Review Lesson 09:</span>
+            <span class="font-bold text-[#1C1917]" id="resScoreReview">2/2 • 100%</span>
+          </div>
+          <div class="flex justify-between text-[#78716C]">
+            <span>Practice Lesson 10:</span>
+            <span class="font-bold text-[#1C1917]" id="resScorePractice">2/3 • 66.7%</span>
+          </div>
+          <div class="border-t border-[#E8E0D5] pt-2 flex justify-between font-extrabold text-[#1C1917] text-sm">
+            <span>TỔNG ĐIỂM:</span>
+            <span class="text-[#D4891A]" id="resScoreTotal">4/5 • 80.0%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review Answer Breakdown -->
+      <div class="space-y-3">
+        <h3 class="text-xs font-extrabold text-[#78716C] uppercase tracking-wider px-1">Rà soát chi tiết đáp án</h3>
+        <div class="space-y-2.5" id="resultAnswersList">
+          <!-- Dynamic generated via JS -->
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="pt-2 flex space-x-3">
+        <button onclick="showView('viewMistakeBank')" class="flex-1 min-h-[50px] bg-[#F5A623] hover:bg-[#D4891A] text-white rounded-2xl font-bold text-xs shadow-xs transition-all text-center">
+          🧠 Sổ tay Mistake Bank
+        </button>
+        <button onclick="showView('viewDashboard')" class="flex-1 min-h-[50px] bg-[#1C1917] hover:bg-stone-800 text-white rounded-2xl font-bold text-xs transition-all text-center">
+          Quay về Dashboard
+        </button>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW 5: MISTAKE BANK FLASHCARD ==================== -->
+    <section id="viewMistakeBank" class="space-y-4 hidden view-transition">
+      <div class="flex items-center justify-between">
+        <button onclick="showView('viewDashboard')" class="inline-flex items-center space-x-1 text-sm font-bold text-[#78716C] hover:text-[#1C1917]">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          <span>Tổng quan</span>
+        </button>
+        <span class="text-xs font-extrabold text-[#D4891A] bg-[#FDF3E0] px-3.5 py-1 rounded-full">Sổ Tay Lỗi Sai (Flashcard)</span>
+      </div>
+
+      <p class="text-xs text-[#78716C] font-semibold px-1">
+        Toàn bộ câu sai tích lũy từ Lesson 01 đến nay. Chạm vào thẻ để lật xem giải thích:
+      </p>
+
+      <!-- Flashcards Container -->
+      <div class="space-y-3.5" id="flashcardsContainer">
+        <!-- Card 1 -->
+        <div class="bg-white p-5 rounded-3xl border border-[#E8E0D5] shadow-xs cursor-pointer hover:border-[#F5A623] transition-all space-y-3" onclick="this.querySelector('.fc-back').classList.toggle('hidden')">
+          <div class="flex items-center justify-between text-xs font-bold">
+            <span class="text-[#D4891A]">Lỗi Ngữ Pháp • Part 5</span>
+            <span class="text-[11px] text-[#78716C]">Chạm để lật 🔄</span>
+          </div>
+          <p class="text-sm font-bold text-[#1C1917] leading-snug">
+            The conference room was unavailable because it was being _______ (maintained).
+          </p>
+          <div class="fc-back hidden pt-3 border-t border-[#E8E0D5] text-xs space-y-1.5 text-[#1C1917]">
+            <p><b class="text-rose-600">Lỗi hay gặp:</b> Chọn maintaining hoặc maintenance.</p>
+            <p><b class="text-emerald-700">Giải thích chuẩn:</b> Cấu trúc bị động quá khứ tiếp diễn là <code>was being + V3/ed</code>.</p>
+            <p class="text-[#D4891A] font-medium italic">💡 Mẹo: Thấy being sau to-be ➔ 95% chọn V3/ed.</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white p-5 rounded-3xl border border-[#E8E0D5] shadow-xs cursor-pointer hover:border-[#F5A623] transition-all space-y-3" onclick="this.querySelector('.fc-back').classList.toggle('hidden')">
+          <div class="flex items-center justify-between text-xs font-bold">
+            <span class="text-[#D4891A]">Lỗi Từ Vựng • Collocation</span>
+            <span class="text-[11px] text-[#78716C]">Chạm để lật 🔄</span>
+          </div>
+          <p class="text-sm font-bold text-[#1C1917] leading-snug">
+            Phân biệt: launch a product vs. attendance at a conference.
+          </p>
+          <div class="fc-back hidden pt-3 border-t border-[#E8E0D5] text-xs space-y-1.5 text-[#1C1917]">
+            <p><b class="text-emerald-700">Giải thích:</b> <code>launch</code> dùng cho sản phẩm mới ra mắt; <code>attendance</code> dùng cho sự tham dự cuộc họp/hội nghị.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW 6: HISTORY SCREEN (BÀI HỌC CŨ) ==================== -->
+    <section id="viewHistory" class="space-y-4 hidden view-transition pb-6">
+      <div class="flex items-center justify-between px-1">
+        <button onclick="showView('viewDashboard')" class="inline-flex items-center space-x-1.5 text-sm font-bold text-[#78716C] hover:text-[#1C1917]">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+          <span>Tổng quan</span>
+        </button>
+        <span class="text-xs font-extrabold text-[#D4891A] bg-[#FDF3E0] px-3.5 py-1.5 rounded-full border border-[#F5A623]/30">Lịch Sử Bài Học</span>
+      </div>
+
+      <p class="text-xs text-[#78716C] font-semibold px-1 leading-relaxed">
+        Toàn bộ các bài học đã hoàn thành từ Lesson 01 đến Lesson 09. Bấm vào bài để xem lại đầy đủ từ vựng, ngữ pháp và bài làm cũ:
+      </p>
+
+      <!-- Danh sách bài học cũ có khoảng cách padding rộng rãi, không dính mép -->
+      <div class="space-y-3.5" id="historyLessonsContainer">
+        <!-- Rendered in app.js from lesson_log -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL XEM CHI TIẾT NGUYÊN VĂN BÀI HỌC CŨ (HISTORY DETAIL TOÀN DIỆN) -->
+  <div id="modalHistoryDetail" class="hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl p-5 max-w-sm w-full border border-[#E8E0D5] shadow-2xl space-y-4 max-h-[88vh] overflow-y-auto custom-scrollbar">
+      <div class="flex items-center justify-between border-b border-[#E8E0D5] pb-3">
+        <span class="text-xs font-extrabold text-[#D4891A] bg-[#FDF3E0] px-3.5 py-1.5 rounded-full border border-[#F5A623]/30" id="histModalLessonBadge">Lesson 01</span>
+        <button onclick="closeHistoryModal()" class="w-8 h-8 rounded-full bg-[#FAF7F2] text-[#78716C] font-extrabold flex items-center justify-center hover:bg-[#E8E0D5]">✕</button>
+      </div>
+
+      <div class="space-y-1">
+        <h3 class="text-base font-extrabold text-[#1C1917]" id="histModalTitle">Chủ đề bài học</h3>
+        <p class="text-xs text-[#78716C]" id="histModalDate">Ngày học: 23/09/2026</p>
+      </div>
+
+      <!-- Tab Chuyển đổi nội dung chi tiết bài cũ -->
+      <div class="flex border-b border-[#E8E0D5] text-xs font-extrabold">
+        <button id="tabHistVocab" onclick="switchHistTab('vocab')" class="flex-1 py-2.5 text-center border-b-2 border-[#F5A623] text-[#D4891A]">1. Từ Vựng (10)</button>
+        <button id="tabHistGrammar" onclick="switchHistTab('grammar')" class="flex-1 py-2.5 text-center text-[#78716C] hover:text-[#1C1917] border-b-2 border-transparent">2. Ngữ Pháp & Bẫy</button>
+        <button id="tabHistPractice" onclick="switchHistTab('practice')" class="flex-1 py-2.5 text-center text-[#78716C] hover:text-[#1C1917] border-b-2 border-transparent">3. Bài Làm Cũ</button>
+      </div>
+
+      <!-- Tab 1: Từ vựng đầy đủ -->
+      <div id="histContentVocab" class="space-y-2.5 max-h-[42vh] overflow-y-auto pr-1">
+        <!-- Rendered in app.js -->
+      </div>
+
+      <!-- Tab 2: Ngữ pháp đầy đủ -->
+      <div id="histContentGrammar" class="space-y-3 hidden">
+        <div class="p-3.5 bg-[#FAF7F2] rounded-2xl border border-[#E8E0D5] space-y-2 text-xs">
+          <p class="font-extrabold text-[#1C1917] text-sm" id="histGrammarTitle">Khái niệm cốt lõi</p>
+          <p class="text-[#78716C] leading-relaxed" id="histGrammarDesc"></p>
+        </div>
+        <div class="p-3.5 bg-rose-50 border border-rose-200/80 rounded-2xl text-xs space-y-1.5 text-rose-950">
+          <p class="font-extrabold text-xs text-rose-700 flex items-center space-x-1">
+            <span>⚠️ TOEIC TRAP (BẪY THI PART 5)</span>
+          </p>
+          <p class="text-xs text-rose-900 leading-relaxed" id="histGrammarTrap"></p>
+        </div>
+      </div>
+
+      <!-- Tab 3: Bài làm cũ & Lỗi sai -->
+      <div id="histContentPractice" class="space-y-2.5 hidden max-h-[42vh] overflow-y-auto pr-1">
+        <!-- Rendered in app.js -->
+      </div>
+
+      <button onclick="closeHistoryModal()" class="w-full py-3.5 bg-[#F5A623] hover:bg-[#D4891A] text-white font-bold rounded-2xl text-sm transition-all shadow-xs">
+        Đóng lại
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL ĐỔI HỌC VIÊN DEMO -->
+  <div id="modalStudentSwitcher" class="hidden fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl p-5 max-w-xs w-full border border-[#E8E0D5] shadow-xl space-y-3 text-center">
+      <h3 class="text-base font-extrabold text-[#1C1917]">Chuyển Đổi Học Viên</h3>
+      <p class="text-xs text-[#78716C] leading-relaxed">
+        Trên Telegram thật, app tự nhận diện tài khoản của anh hoặc chị Hằng. Ở đây anh có thể bấm đổi để test thử giao diện của từng người:
+      </p>
+      <div class="pt-2 flex flex-col space-y-2">
+        <button onclick="selectStudentDemo('Nguyen Dinh Toan')" class="w-full py-3 bg-[#FAF7F2] hover:bg-[#FDF3E0] text-[#1C1917] font-bold rounded-2xl text-sm border border-[#E8E0D5]">
+          👤 Anh Toản (Toan Nguyen)
+        </button>
+        <button onclick="selectStudentDemo('Le Hang')" class="w-full py-3 bg-[#FAF7F2] hover:bg-[#FDF3E0] text-[#1C1917] font-bold rounded-2xl text-sm border border-[#E8E0D5]">
+          👤 Chị Hằng (Le Hang)
+        </button>
+      </div>
+      <button onclick="toggleStudentModal()" class="w-full py-2 text-xs font-bold text-[#78716C] hover:text-[#1C1917] pt-2">
+        Đóng lại
+      </button>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAVIGATION BAR -->
+  <nav class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-lg border-t border-[#E8E0D5] px-4 py-2.5 flex items-center justify-around max-w-md mx-auto">
+    <button onclick="showView('viewDashboard')" id="navDash" class="flex flex-col items-center text-[#F5A623] space-y-0.5">
+      <span class="text-xl">📊</span>
+      <span class="text-[11px] font-extrabold">Dashboard</span>
+    </button>
+    <button onclick="showView('viewStudy')" id="navStudy" class="flex flex-col items-center text-[#78716C] hover:text-[#1C1917] space-y-0.5">
+      <span class="text-xl">📖</span>
+      <span class="text-[11px] font-bold">Bài học</span>
+    </button>
+    <button onclick="showView('viewQuiz')" id="navQuiz" class="flex flex-col items-center text-[#78716C] hover:text-[#1C1917] space-y-0.5">
+      <span class="text-xl">✍️</span>
+      <span class="text-[11px] font-bold">Làm bài</span>
+    </button>
+    <button onclick="showView('viewHistory')" id="navHistory" class="flex flex-col items-center text-[#78716C] hover:text-[#1C1917] space-y-0.5">
+      <span class="text-xl">📚</span>
+      <span class="text-[11px] font-bold">Lịch sử</span>
+    </button>
+    <button onclick="showView('viewMistakeBank')" id="navMistake" class="flex flex-col items-center text-[#78716C] hover:text-[#1C1917] space-y-0.5">
+      <span class="text-xl">🧠</span>
+      <span class="text-[11px] font-bold">Sổ lỗi sai</span>
+    </button>
+  </nav>
+
+  <!-- External App JS -->
+  <script src="js/app.js"></script>
+</body>
+</html>
