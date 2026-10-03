@@ -1810,20 +1810,20 @@ function renderHistoryLessons() {
 
   historicalLessons.forEach(l => {
     const card = document.createElement('div');
-    card.className = 'bg-white p-4.5 rounded-3xl border border-[#E8E0D5] shadow-xs flex items-center justify-between cursor-pointer hover:border-[#F5A623] transition-all';
+    card.className = 'bg-white p-5 rounded-3xl border border-[#E8E0D5] shadow-xs flex items-center justify-between cursor-pointer hover:border-[#F5A623] transition-all';
     card.onclick = () => openHistoryDetail(l.num);
 
     card.innerHTML = `
-      <div class="space-y-1">
+      <div class="space-y-1.5 pr-2">
         <div class="flex items-center space-x-2">
-          <span class="text-xs font-extrabold text-[#D4891A] bg-[#FDF3E0] px-2.5 py-0.5 rounded-md">Lesson ${l.num < 10 ? '0' + l.num : l.num}</span>
+          <span class="text-xs font-extrabold text-[#D4891A] bg-[#FDF3E0] px-3 py-1 rounded-lg border border-[#F5A623]/20">Lesson ${l.num < 10 ? '0' + l.num : l.num}</span>
           <span class="text-xs text-[#78716C] font-semibold">${l.date}</span>
         </div>
-        <h4 class="text-sm font-bold text-[#1C1917] leading-tight pt-0.5">${l.title}</h4>
+        <h4 class="text-base font-extrabold text-[#1C1917] leading-tight pt-1">${l.title}</h4>
         <p class="text-xs text-[#78716C]">Điểm số: <b class="text-emerald-700 font-bold">${currentStudent === 'Nguyen Dinh Toan' ? l.scoreToan : l.scoreHang}</b></p>
       </div>
-      <div class="pl-3 flex-shrink-0">
-        <span class="px-3.5 py-2 bg-[#FAF7F2] hover:bg-[#FDF3E0] text-[#D4891A] border border-[#E8E0D5] rounded-xl text-xs font-bold transition-all block">
+      <div class="pl-4 flex-shrink-0">
+        <span class="px-4 py-2 bg-[#FAF7F2] hover:bg-[#FDF3E0] text-[#D4891A] border border-[#E8E0D5] rounded-2xl text-xs font-extrabold transition-all block shadow-2xs">
           Xem ➔
         </span>
       </div>
@@ -2013,21 +2013,22 @@ function startQuizDirectly() {
   loadCurrentQuestion();
 }
 
-// Web Speech API Pronunciation (Tối ưu cho Safari iOS)
+// Audio Player với HTML5 Audio Cloud Native (Hoạt động 100% trong Telegram iOS)
 function speakWord(word) {
-  if ('speechSynthesis' in window) {
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(word);
-    utterance.lang = 'en-US';
-    utterance.rate = 0.85;
-    utterance.volume = 1;
-    // Bắt buộc gọi trực tiếp theo user gesture
-    window.speechSynthesis.speak(utterance);
-  } else {
-    // Fallback audio Google Translate TTS
-    const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=en&q=${encodeURIComponent(word)}`;
+  try {
+    const audioUrl = `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(word)}&type=2`;
     const audio = new Audio(audioUrl);
-    audio.play().catch(e => console.log('Audio playback prevented:', e));
+    audio.play().catch(err => {
+      console.warn('HTML5 audio play blocked, falling back to Web Speech:', err);
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(word);
+        u.lang = 'en-US';
+        window.speechSynthesis.speak(u);
+      }
+    });
+  } catch (e) {
+    console.error('Audio error:', e);
   }
 }
 
